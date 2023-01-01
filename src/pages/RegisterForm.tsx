@@ -9,7 +9,11 @@ function RegisterForm() {
     return (
         <>
             <Header />
-            <Hero heroTitle="Submit your entry" heroSubtitle="incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis sed do eiusmod tempor incididunt ut labore et dolore magna" btnIcon={<ArrowDownIcon />} />
+            <Hero heroTitle="Submit your entry"
+                heroSubtitle="incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis sed do eiusmod tempor incididunt ut labore et dolore magna"
+                btnIcon={<ArrowDownIcon />}
+                bgHeight="400px"
+                bgInnerHeight="400px" />
             <div className={styles.registerForm}>
                 <div className={styles.registerForm__inner}>
                     <div className={styles.registerForm__infoText}>

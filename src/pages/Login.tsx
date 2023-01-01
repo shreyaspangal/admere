@@ -8,7 +8,7 @@ function Login() {
     return (
         <>
             <Header />
-            <Hero heroTitle="Login" />
+            <Hero heroTitle="Login" bgHeight="300px" bgInnerHeight="300px" />
             <div className={styles.login}>
                 <div className={styles.login__inner}>
                     <form className={styles.login__form}>

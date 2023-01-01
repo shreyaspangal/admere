@@ -2,14 +2,16 @@ import React from 'react';
 import styles from './Hero.module.scss';
 
 type Assets = {
-  heroTitle: string,
-  heroSubtitle: string,
+  heroTitle?: string,
+  heroSubtitle?: string,
   btnText?: any,
   btnIcon?: any,
   onClick?: any,
+  bgHeight?: string,
+  bgInnerHeight?: string,
 }
 
-function Hero({ heroTitle, heroSubtitle, btnText, onClick, btnIcon }: Assets) {
+function Hero({ heroTitle, heroSubtitle, btnText, onClick, btnIcon, bgHeight, bgInnerHeight }: Assets) {
 
   // const heroStyles = {
   //   height: '600px',
@@ -20,11 +22,11 @@ function Hero({ heroTitle, heroSubtitle, btnText, onClick, btnIcon }: Assets) {
   // }
 
   return (
-    <div className={styles.hero}>
-      <div className={styles.hero__inner}>
+    <div className={styles.hero} style={{height: bgHeight || ''}}>
+      <div className={styles.hero__inner} style={{height: bgInnerHeight || ''}}>
         <div className={styles.hero__innerText}>
-          <h2 className='fs-1 mx-auto'>{heroTitle}</h2>
-          <p className='fs-6 w-75 mx-auto my-5 my-lg-4'>{heroSubtitle}</p>
+          {heroTitle && <h2 className='fs-1 mx-auto'>{heroTitle}</h2>}
+          {heroSubtitle && <p className='fs-6 w-75 mx-auto my-5 my-lg-4'>{heroSubtitle}</p>}
           {btnText && <button type='button' onClick={onClick} className={styles.hero__submitBtn}>{btnText}</button>}
           {/* {btnIcon && <button type='button' onClick={onClick}>{btnText}</button>} */}
         </div>
