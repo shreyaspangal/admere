@@ -7,18 +7,23 @@
 
     .hero__inner {
         width: 50%;
+
         @media screen and (max-width: 1330px) {
             width: 60%;
         }
+
         @media screen and (max-width: 1047px) {
             width: 70%;
         }
+
         @media screen and (max-width: 809px) {
             width: 80%;
         }
+
         @media screen and (max-width: 670px) {
             width: 88%;
         }
+
         height: 600px;
         margin: auto;
         text-align: center;
