@@ -3,6 +3,15 @@ import styles from './Header.module.scss';
 import { ReactComponent as Logo } from '../assets/images/logo.svg';
 
 function Header() {
+
+    const [toggleNavMenu, setToggleNavMenu] = React.useState(false);
+
+    function handleToggleMenu() {
+        setToggleNavMenu(true);
+    }
+
+    const currMenuIcon = toggleNavMenu ? 'opened' : '';
+
     return (
         <nav className={styles.nav}>
             <div className={styles.nav__inner}>
@@ -16,6 +25,9 @@ function Header() {
                 </ul>
                 <button className={styles.nav__contactBtn}>
                     Contact us
+                </button>
+                <button className={`${styles.nav__hamburger} ${currMenuIcon}`} onClick={handleToggleMenu}>
+                    <span></span>
                 </button>
             </div>
         </nav>

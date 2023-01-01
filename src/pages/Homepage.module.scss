@@ -427,6 +427,10 @@
                 max-width: 50%;
                 margin: auto;
 
+                @media screen and (max-width: 768px) {
+                    max-width: 80%;
+                }
+
                 .carousel__title {
                     button {
                         color: #000 !important;
@@ -453,20 +457,34 @@
                 @extend %section-title;
             }
 
-            .homepage__contactus__form {
-                max-width: 50%;
+            .homepage__contactus__formWrapper {
+                background-color: #222222;
+                padding: 30px;
+                border-radius: 10px;
+                max-width: 60%;
                 margin: auto;
 
-                button {
-                    border-radius: 100px;
-                    background-image: linear-gradient(108deg, #1dcdfe -45%, #673ae0 96%);
-                    width: 200px;
-                    height: 50px;
-                    color: #fff;
-                    font-weight: 600;
+                @media screen and (max-width: 1024px) {
+                    max-width: 80%;
+                }
 
-                    &:hover {
-                        background-image: linear-gradient(100deg, #1a9fc4 -13%, #5026c4 97%);
+                @media screen and (max-width: 840px) {
+                    max-width: 90%;
+                }
+
+                .homepage__contactus__form {
+                    button {
+                        border-radius: 100px;
+                        background-image: linear-gradient(108deg, #1dcdfe -45%, #673ae0 96%);
+                        width: 200px;
+                        height: 50px;
+                        color: #fff;
+                        font-weight: 600;
+                        border: none;
+
+                        &:hover {
+                            background-image: linear-gradient(100deg, #1a9fc4 -13%, #5026c4 97%);
+                        }
                     }
                 }
             }

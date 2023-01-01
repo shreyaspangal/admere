@@ -26,7 +26,7 @@ function Homepage() {
     <div className={styles.homepage}>
       {/* <Header /> */}
       {/* <Hero /> */}
-      <div className={styles.homepage__inner}>
+      {/* <div className={styles.homepage__inner}>
         <section className={styles.homepage__whoWeAre}>
           <h3>Who we are</h3>
           <p>We are community of experinced singers usmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis</p>
@@ -52,7 +52,6 @@ function Homepage() {
           <h3>Win Certificates</h3>
           <div className={styles.homepage__winCertificates__wrapper}>
             <div className={styles.homepage__winCertificates__leftImg}>
-              {/* <img src="../assets/images/conference_call.png" alt="Conference screen" /> */}
             </div>
             <div className={styles.homepage__winCertificates__rightText}>
               <h5>Participate and improve your overall singing skills!</h5>
@@ -213,37 +212,39 @@ function Homepage() {
           </div>
         </section>
         <section className={styles.homepage__contactus}>
-          <h3>Contact Us</h3>
-          <form className={styles.homepage__contactus__form}>
-            <div className="row">
-              <div className="form-group col-sm-6 mx-auto mb-3">
-                <label htmlFor="name" className="label-title form-label mb-1">Name</label>
-                <input type="text" id="name" placeholder='Enter your name' name='name' className='form-control' />
+          <div className={styles.homepage__contactus__formWrapper}>
+            <h3>Contact Us</h3>
+            <form className={styles.homepage__contactus__form}>
+              <div className="row">
+                <div className="form-group col-md-6 mx-auto mb-3">
+                  <label htmlFor="name" className="label-title form-label mb-1">Name</label>
+                  <input type="text" id="name" placeholder='Enter your name' name='name' className='form-control' />
+                </div>
+                <div className="form-group col-md-6 mx-auto mb-3">
+                  <label htmlFor="email" className="label-title form-label mb-1">Email</label>
+                  <input type="text" id="email" placeholder='example@gmail.com' name='email' className='form-control' />
+                </div>
+                <div className="form-group col-md-6 mx-auto mb-3">
+                  <label htmlFor="subject" className="label-title form-label mb-1">Subject</label>
+                  <input type="text" id="subject" placeholder='Would love to connect with you for ...' name='subject' className='form-control' />
+                </div>
+                <div className="form-group col-md-6 mx-auto mb-3">
+                  <label htmlFor="phone" className="label-title form-label mb-1">Phone (optional)</label>
+                  <input type="text" id="phone" placeholder='Enter your phone' name='phone' className='form-control' />
+                </div>
+                <div className="form-group col-12 mx-auto mb-3">
+                  <label htmlFor="message" className="label-title form-label mb-1">Message</label>
+                  <textarea name="message" id="message" cols={30} rows={5} className='form-control' placeholder='Enter your message'></textarea>
+                </div>
               </div>
-              <div className="form-group col-sm-6 mx-auto mb-3">
-                <label htmlFor="email" className="label-title form-label mb-1">Email</label>
-                <input type="text" id="email" placeholder='example@gmail.com' name='email' className='form-control' />
+              <div className="d-flex justify-content-center">
+                <button type="submit" className='contactus__submitBtn'>Submit</button>
               </div>
-              <div className="form-group col-sm-6 mx-auto mb-3">
-                <label htmlFor="subject" className="label-title form-label mb-1">Subject</label>
-                <input type="text" id="subject" placeholder='Would love to connect with you for ...' name='subject' className='form-control' />
-              </div>
-              <div className="form-group col-sm-6 mx-auto mb-3">
-                <label htmlFor="phone" className="label-title form-label mb-1">Phone (optional)</label>
-                <input type="text" id="phone" placeholder='Enter your phone' name='phone' className='form-control' />
-              </div>
-              <div className="form-group col-12 mx-auto mb-3">
-                <label htmlFor="message" className="label-title form-label mb-1">Message</label>
-                <textarea name="message" id="message" cols={30} rows={5} className='form-control' placeholder='Enter your message'></textarea>
-              </div>
-            </div>
-            <div className="d-flex justify-content-center">
-              <button type="submit" className='contactus__submitBtn'>Submit</button>
-            </div>
-          </form>
+            </form>
+          </div>
         </section>
-      </div>
-      {/* <Footer /> */}
+      </div> */}
+      <Footer />
     </div>
   )
 }
