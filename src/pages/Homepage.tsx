@@ -25,7 +25,7 @@ function Homepage() {
   return (
     <div className={styles.homepage}>
       <Header />
-      <Hero />
+      <Hero heroTitle="We help individuals/bands represent their singing talent" heroSubtitle="This is a subheadline usmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis" btnText="Join Now" />
       <div className={styles.homepage__inner}>
         <section className={styles.homepage__whoWeAre}>
           <h3>Who we are</h3>

@@ -34,7 +34,10 @@
         }
 
         li {
-            margin-right: 40px;
+            &:not(li:last-child) {
+                margin-right: 40px;
+            }
+
             min-width: 90px;
             text-align: center;
             letter-spacing: 1.2px;
