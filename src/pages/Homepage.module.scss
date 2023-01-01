@@ -245,7 +245,6 @@
 
         .homepage__ourContest {
             @extend %container;
-            // margin-bottom: 5rem;
 
             display: flex;
             flex-direction: column;
@@ -301,6 +300,7 @@
                         width: 100%;
                         border-radius: 5px;
                         background-image: linear-gradient(100deg, #1dcdfe -13%, #673ae0 97%);
+                        border: none;
 
                         &:hover {
                             background-image: linear-gradient(100deg, #1a9fc4 -13%, #5026c4 97%);

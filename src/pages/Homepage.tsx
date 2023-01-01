@@ -24,9 +24,9 @@ function Homepage() {
 
   return (
     <div className={styles.homepage}>
-      {/* <Header /> */}
-      {/* <Hero /> */}
-      {/* <div className={styles.homepage__inner}>
+      <Header />
+      <Hero />
+      <div className={styles.homepage__inner}>
         <section className={styles.homepage__whoWeAre}>
           <h3>Who we are</h3>
           <p>We are community of experinced singers usmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis</p>
@@ -243,7 +243,7 @@ function Homepage() {
             </form>
           </div>
         </section>
-      </div> */}
+      </div>
       <Footer />
     </div>
   )

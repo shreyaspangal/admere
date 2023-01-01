@@ -1,5 +1,5 @@
 .hero {
-    height: 90vh;
+    height: 600px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.539), rgb(0, 0, 0)), url('../assets/images/hero-img.png');
     background-repeat: no-repeat;
     background-position: 0% top;
@@ -7,7 +7,19 @@
 
     .hero__inner {
         width: 50%;
-        height: 70%;
+        @media screen and (max-width: 1330px) {
+            width: 60%;
+        }
+        @media screen and (max-width: 1047px) {
+            width: 70%;
+        }
+        @media screen and (max-width: 809px) {
+            width: 80%;
+        }
+        @media screen and (max-width: 670px) {
+            width: 88%;
+        }
+        height: 600px;
         margin: auto;
         text-align: center;
         color: white;
@@ -16,19 +28,6 @@
         justify-content: center;
 
         .hero__innerText {
-            h2 {
-                font-size: 40px;
-                width: 80%;
-                margin: 0 auto;
-                letter-spacing: 1.2px;
-            }
-
-            p {
-                font-size: 18px;
-                width: 60%;
-                margin: 30px auto;
-            }
-
             button {
                 background-image: linear-gradient(rgba(29, 205, 254, 100%), rgba(103, 58, 224, 100%));
                 width: 213px;
@@ -43,9 +42,11 @@
                 letter-spacing: 1.2px;
                 font-size: 18px;
 
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     background-image: linear-gradient(rgba(29, 205, 254, 70%), rgba(103, 58, 224, 90%));
                 }
+
                 &:active {
                     background-image: linear-gradient(rgba(29, 205, 254, 100%), rgba(103, 58, 224, 90%));
                 }
