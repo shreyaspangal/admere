@@ -9,14 +9,24 @@ import Login from './pages/Login';
 import ProfileUpload from './pages/ProfileUpload';
 import RegisterForm from './pages/RegisterForm';
 
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+
 function App() {
   return (
     <div className="app">
-      <Homepage />
-      {/* <RegisterForm /> */}
-      {/* <Login /> */}
-      {/* <ProfileUpload /> */}
-      {/* <ContestInfo /> */}
+      <Router>
+        <Routes>
+          <Route path="/home" element={<Homepage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register-form" element={<RegisterForm />} />
+          <Route path="/profile-upload" element={<ProfileUpload />} />
+          <Route path="/contest-info" element={<ContestInfo />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
