@@ -25,6 +25,10 @@
                 grid-template-columns: 1fr 1fr;
             }
 
+            @media screen and (max-width: 370px) {
+                grid-template-columns: 1fr;
+            }
+
             .nav__logo {
                 min-width: 60px;
                 width: 60px;
@@ -89,9 +93,22 @@
             padding-top: 5px;
             margin-top: 15px;
 
+            @media screen and (max-width: 370px) {
+                flex-direction: column;
+            }
+
             .footer__bottomLeft {
                 text-align: left;
                 padding-left: 20px;
+
+                @media screen and (max-width: 370px) {
+                    padding-left: 0px;
+                    p {
+                        margin-bottom: 0;
+                        margin-top: 10px;
+                        margin-left: -88px;
+                    }
+                }
             }
 
             .footer__bottomRight {

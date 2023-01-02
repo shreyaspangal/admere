@@ -210,7 +210,7 @@ function ContestInfo() {
                         </div>
                     </div>
                     <div className={styles.contestInfo__previousEntries}>
-                        <p className='fs-3 mb-1 fw-bold'>View Entries of Previous Competitions</p>
+                        <p className='fs-3 mb-3 fw-bold'>View Entries of Previous Competitions</p>
                         <div className={styles.contestInfo__previousEntriesImgs}>
                             <div className={styles.contestInfo__previousEntriesImg}>
                                 {/* <button type='button' className={`${styles.contestInfo__previousEntriesImgBtn} btn btn-outline-secondary`}>Know more</button> */}
