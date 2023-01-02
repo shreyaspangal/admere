@@ -200,8 +200,8 @@ function ContestInfo() {
                                         </AccordionBody>
                                     </AccordionItem>
                                     <AccordionItem className='mb-3 border-2 rounded'>
-                                        <AccordionHeader targetId="3" className={styles.carousel__title}>Who can participate?</AccordionHeader>
-                                        <AccordionBody accordionId="3" className={styles.carousel__content}>
+                                        <AccordionHeader targetId="4" className={styles.carousel__title}>Who can participate?</AccordionHeader>
+                                        <AccordionBody accordionId="4" className={styles.carousel__content}>
                                             Quisque rutrum. Aenean imperdi. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget
                                         </AccordionBody>
                                     </AccordionItem>
