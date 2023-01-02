@@ -12,11 +12,11 @@ import RegisterForm from './pages/RegisterForm';
 function App() {
   return (
     <div className="app">
-      {/* <Homepage /> */}
+      <Homepage />
       {/* <RegisterForm /> */}
       {/* <Login /> */}
       {/* <ProfileUpload /> */}
-      <ContestInfo />
+      {/* <ContestInfo /> */}
     </div>
   );
 }

@@ -33,7 +33,7 @@
                 min-width: 60px;
                 width: 60px;
                 height: 60px;
-                align-self: start;
+                align-self: flex-start;
 
                 @media screen and (max-width: 900px) {
                     display: none;
@@ -113,7 +113,7 @@
 
             .footer__bottomRight {
                 display: flex;
-                align-items: start;
+                align-items: flex-start;
 
                 @media screen and (max-width: 600px) {
                     flex-direction: column;
