@@ -20,6 +20,7 @@ function App() {
     <div className="app">
       <Router>
         <Routes>
+          <Route path="/" element={<Homepage />} />
           <Route path="/home" element={<Homepage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register-form" element={<RegisterForm />} />

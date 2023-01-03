@@ -10,17 +10,19 @@ function ProfileUpload() {
             <Header />
             <div className={styles.profileUpload}>
                 <div className={styles.profileUpload__inner}>
-                    <div className={styles.profileUpload__sidebar}>
-                        <div className={styles.profileUpload__sidebarImg}>SS</div>
-                        <div className={styles.profileUpload__sidebarProfileName}>
-                            <p className='fs-5 mb-0'>Shreyas Pangal</p>
-                            <small className='small'>Personal profile</small>
-                        </div>
-                        <div className={styles.profileUpload__sidebarLoginBtn}>
-                            <button type='button'>Login Details</button>
-                        </div>
-                        <div className={styles.profileUpload__sidebarUploadVideoBtn}>
-                            <button type='button'>Upload Video</button>
+                    <div className='profileUpload__sidebarWrapper'>
+                        <div className={styles.profileUpload__sidebar}>
+                            <div className={styles.profileUpload__sidebarImg}>SS</div>
+                            <div className={styles.profileUpload__sidebarProfileName}>
+                                <p className='fs-5 mb-0'>Shreyas Pangal</p>
+                                <small className='small'>Personal profile</small>
+                            </div>
+                            <div className={styles.profileUpload__sidebarLoginBtn}>
+                                <button type='button'>Login Details</button>
+                            </div>
+                            <div className={styles.profileUpload__sidebarUploadVideoBtn}>
+                                <button type='button'>Upload Video</button>
+                            </div>
                         </div>
                     </div>
                     <div className={styles.profileUpload__main}>
