@@ -27,7 +27,7 @@ function Homepage() {
       <Header />
       <Hero heroTitle="We help individuals/bands represent their singing talent" heroSubtitle="This is a subheadline usmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis" btnText="Join Now" />
       <div className={styles.homepage__inner}>
-        <section className={styles.homepage__whoWeAre}>
+        <section id='#whoWeAre' className={styles.homepage__whoWeAre}>
           <h3>Who we are</h3>
           <p>We are community of experinced singers usmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis</p>
           <div className={styles.homepage__whoWeAre__cards}>
@@ -48,7 +48,7 @@ function Homepage() {
             </div>
           </div>
         </section>
-        <section className={styles.homepage__winCertificates}>
+        <section id='#winCertificates' className={styles.homepage__winCertificates}>
           <h3>Win Certificates</h3>
           <div className={styles.homepage__winCertificates__wrapper}>
             <div className={styles.homepage__winCertificates__leftImg}>
@@ -59,21 +59,21 @@ function Homepage() {
             </div>
           </div>
         </section>
-        <section className={styles.homepage__section4}>
+        <section id='#section4' className={styles.homepage__section4}>
           <div className={styles.homepage__section4__leftText}>
             <h5>Participate and improve your overall singing skills!</h5>
             <p>Particiate in online contests enim ad minim veniam, quis Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
           <div className={styles.homepage__section4__rightImg}></div>
         </section>
-        <section className={styles.homepage__section5}>
+        <section id='#section5' className={styles.homepage__section5}>
           <div className={styles.homepage__section5__leftImg}></div>
           <div className={styles.homepage__section5__rightText}>
             <h5>Participate and improve your overall singing skills!</h5>
             <p>Particiate in online contests enim ad minim veniam, quis Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
         </section>
-        <section className={styles.homepage__ourContest}>
+        <section id='#ourContest' className={styles.homepage__ourContest}>
           <h3 className={styles.ourContest__title}>Our Contest</h3>
           <p className={styles.ourContest__subtitle}>We provide different online contests according to your convenience usmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis scing elit, sed do eiusmod tempor incididunt ut labore et dolore magna al</p>
           <div className={styles.homepage__ourContest__detailsCards}>
@@ -142,7 +142,7 @@ function Homepage() {
             </div>
           </div>
         </section>
-        <section className={styles.homepage__recentParticipants}>
+        <section id='#recentParticipants' className={styles.homepage__recentParticipants}>
           <div className={styles.homepage__recentParticipants__wrapper}>
             <h3 className={styles.homepage__recentParticipants__title}>Recent participants</h3>
             <p className={styles.homepage__recentParticipants__subtitle}>eand their feedback from mentor, winners tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis</p>
@@ -176,7 +176,7 @@ function Homepage() {
             </div>
           </div>
         </section>
-        <section className={styles.homepage__faq}>
+        <section id='#faqs' className={styles.homepage__faq}>
           <h3>Frequently asked questions</h3>
           <p>The most asked questions and answers by judges</p>
           <div className={styles.carousel}>
@@ -211,7 +211,7 @@ function Homepage() {
             }
           </div>
         </section>
-        <section className={styles.homepage__contactus}>
+        <section id='#contactUs' className={styles.homepage__contactus}>
           <div className={styles.homepage__contactus__formWrapper}>
             <h3>Contact Us</h3>
             <form className={styles.homepage__contactus__form}>

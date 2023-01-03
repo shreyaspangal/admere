@@ -70,6 +70,16 @@
     text-align: center;
     color: white;
     width: 50%;
+
+    @media screen and (max-width: 768px) {
+        width: 70%;
+    }
+
+    @media screen and (max-width: 425px) {
+        width: 80%;
+    }
+
+    margin-bottom: 2rem;
 }
 
 %winCert-sectionText {
@@ -146,7 +156,6 @@
 
             .homepage__whoWeAre__cards {
                 display: flex;
-                margin-block: 2rem;
                 justify-content: space-evenly;
                 width: 100%;
 
@@ -256,16 +265,21 @@
 
             .ourContest__subtitle {
                 @extend %section-subtitle;
-                width: 60%;
             }
 
             .homepage__ourContest__detailsCards {
                 display: grid;
                 grid-template-columns: repeat(3, 30%);
+                gap: 20px;
                 justify-content: space-between;
                 margin-inline: 5rem;
 
-                @media screen and (max-width: 768px) {
+                @media screen and (max-width: 1024px) {
+                    grid-template-columns: 1fr 1fr;
+                    gap: 40px;
+                }
+
+                @media screen and (max-width: 900px) {
                     grid-template-columns: 1fr;
                 }
 
@@ -427,7 +441,7 @@
                 max-width: 50%;
                 margin: auto;
 
-                @media screen and (max-width: 768px) {
+                @media screen and (max-width: 1024px) {
                     max-width: 80%;
                 }
 
