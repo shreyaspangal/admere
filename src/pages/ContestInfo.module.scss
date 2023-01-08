@@ -99,6 +99,12 @@
             .weeklyMonthlyContests__row2___TopCol1 {
                 display: flex;
                 padding-bottom: 2rem;
+                
+                @media screen and (max-width: 576px) {
+                    order: 1;
+                    margin-bottom: 2rem;
+                    padding-bottom: 0rem;
+                }
 
                 div:is(:nth-child(1)) {
                     padding-right: 1rem;
@@ -121,6 +127,7 @@
 
                 @media screen and (max-width: 576px) {
                     margin-bottom: 2rem;
+                    order: 0;
                 }
 
                 p {
