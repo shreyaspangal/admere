@@ -12,6 +12,15 @@
 
         margin: auto;
 
+        .payAndRegisterBtn {
+            transition: all 500ms ease;
+            &:hover {
+                background-color: #45AD4F;
+                padding-block: 15px;
+                transition: padding-block 500ms ease;
+            }
+        }
+
         .contestInfo__registerNow {
             display: grid;
             align-items: center;
@@ -99,7 +108,7 @@
             .weeklyMonthlyContests__row2___TopCol1 {
                 display: flex;
                 padding-bottom: 2rem;
-                
+
                 @media screen and (max-width: 576px) {
                     order: 1;
                     margin-bottom: 2rem;

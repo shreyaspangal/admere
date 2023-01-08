@@ -1,14 +1,17 @@
 import React from 'react';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import Hero from '../components/Hero';
 import styles from './ContestInfo.module.scss';
+import Hero from '../components/Hero';
+import Layout from '../components/Layout';
+import { Accordion, AccordionBody, AccordionHeader, AccordionItem } from 'reactstrap';
 import { ReactComponent as TrophyIcon } from '../assets/images/icons/trophy.svg';
 import { ReactComponent as GoldenTrophyIcon } from '../assets/images/icons/golden-trophy.svg';
-import { Accordion, AccordionBody, AccordionHeader, AccordionItem } from 'reactstrap';
+import { useNavigate } from 'react-router-dom';
 
 
 function ContestInfo() {
+
+    const navigate = useNavigate();
+
     // For Accordion
     const [open, setOpen] = React.useState('1');
     const toggle = (id: string) => {
@@ -19,9 +22,13 @@ function ContestInfo() {
         }
     };
 
+    const handlePayAndRegister = () => {
+        navigate("/register-form");
+        window.scrollTo(0, 0);
+    }
+
     return (
-        <>
-            <Header />
+        <Layout>
             <Hero
                 heroTitle="Weekly/Monthly Contests"
                 heroSubtitle=' incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis sed do eiusmod tempor incididunt ut labore et dolore magna'
@@ -57,7 +64,7 @@ function ContestInfo() {
                             </div>
                         </div>
                         <div className={styles.contestInfo__registerNow_Col2}>
-                            <button type='button' className='btn btn-success w-100'>Pay and Register Now</button>
+                            <button type='button' className={`${styles.payAndRegisterBtn} ' btn btn-success w-100'`} onClick={handlePayAndRegister}>Pay and Register Now</button>
                         </div>
                     </div>
                     <div className={styles.contestInfo__weeklyMonthlyContests}>
@@ -172,7 +179,7 @@ function ContestInfo() {
                                 <small className='small'>incididunt ut labore et dolore magna aliqua.</small>
                             </div>
                         </div>
-                        <button className='btn btn-success btn-lg mt-3' type='button'>Pay and Register Now</button>
+                        <button className={`${styles.payAndRegisterBtn} btn btn-success btn-lg mt-3`} type='button' onClick={handlePayAndRegister}>Pay and Register Now</button>
                     </div>
                     <div className={styles.contestInfo__faq}>
                         <p className='fs-3 mb-1 fw-bold'>Frequently asked questions</p>
@@ -229,8 +236,7 @@ function ContestInfo() {
                     </div>
                 </div>
             </div>
-            <Footer />
-        </>
+        </Layout>
     )
 }
 
