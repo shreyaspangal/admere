@@ -1,3 +1,4 @@
+// Variables starts
 %nav-links {
     color: white;
     list-style: none;
@@ -17,12 +18,34 @@
     }
 }
 
+%secondary-btn {
+    padding: 10px 22px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    border-radius: 100px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    border: none;
+    margin-right: 10px;
+
+
+    &:hover {
+        background-color: rgb(191, 190, 190);
+    }
+}
+
+// Variables ends
+
 .nav {
     background-color: #1A1A1A;
     width: 100%;
     height: 80px;
     display: flex;
     align-items: center;
+    position: sticky;
+    top: 0;
+    box-shadow: 0px 10px 15px 5px rgba(0, 0, 0, 0.1);
+    z-index: 999 !important;
 
     .nav__inner {
         max-width: 1400px;
@@ -90,21 +113,19 @@
     }
 
     .nav__contactBtn {
-        padding: 10px 22px;
-        flex-grow: 0;
-        flex-shrink: 0;
-        border-radius: 100px;
-        font-weight: 500;
-        letter-spacing: 1.2px;
-        border: none;
-        margin-right: 10px;
+        @extend %secondary-btn;
 
         @media screen and (max-width: 910px) {
             display: none;
         }
 
-        &:hover {
-            background-color: rgb(191, 190, 190);
+    }
+
+    .nav__gobackBtn {
+        @extend %secondary-btn;
+
+        @media screen and (max-width: 910px) {
+            display: none;
         }
     }
 
