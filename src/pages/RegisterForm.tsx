@@ -4,11 +4,42 @@ import Hero from '../components/Hero';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { ReactComponent as ArrowDownIcon } from '../assets/images/icons/arrow-down.svg';
+import Layout from '../components/Layout';
+import { Spinner } from 'reactstrap';
+
+type formDataType = {
+    firstName: string,
+    lastName: string,
+    phone: any,
+    email: string,
+    musicTrack: any,
+}
+
+const InitialFormState: formDataType = {
+    firstName: '',
+    lastName: '',
+    phone: '',
+    email: '',
+    musicTrack: '',
+}
 
 function RegisterForm() {
+
+    const [formData, setFormData] = React.useState(InitialFormState);
+
+    const handleOnChange = (e: any) => {
+        // Extract name & value attributes values & update/override form data
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    }
+
+    const handleOnSubmit = (e: any) => {
+        e.preventDefault();
+        console.log(formData);
+    }
+
     return (
-        <>
-            <Header />
+        <Layout>
             <Hero heroTitle="Submit your entry"
                 heroSubtitle="incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis sed do eiusmod tempor incididunt ut labore et dolore magna"
                 btnIcon={<ArrowDownIcon />}
@@ -27,35 +58,40 @@ function RegisterForm() {
                         <form>
                             <div className="row">
                                 <div className="form-group col-md-6 mx-auto mb-3">
-                                    <label htmlFor="name" className="label-title form-label mb-1">First Name</label>
-                                    <input type="text" id="name" placeholder='Joe' name='name' className='form-control' />
+                                    <label htmlFor="firstName" className="label-title form-label mb-1">First Name <span className='text-danger'>*</span></label>
+                                    <input type="text" id="firstName" placeholder='Joe' name='firstName' className='form-control' value={formData.firstName} onChange={handleOnChange} />
                                 </div>
                                 <div className="form-group col-md-6 mx-auto mb-3">
-                                    <label htmlFor="email" className="label-title form-label mb-1">Last Name</label>
-                                    <input type="text" id="email" placeholder='Rogan' name='email' className='form-control' />
+                                    <label htmlFor="lastName" className="label-title form-label mb-1">Last Name <span className='text-danger'>*</span></label>
+                                    <input type="text" id="lastName" placeholder='Rogan' name='lastName' className='form-control' value={formData.lastName} onChange={handleOnChange} />
                                 </div>
                                 <div className="form-group col-md-6 mx-auto mb-3">
-                                    <label htmlFor="phone" className="label-title form-label mb-1">Phone Number</label>
-                                    <input type="number" id="phone" placeholder='+91 ...' name='phone' className='form-control' />
+                                    <label htmlFor="phone" className="label-title form-label mb-1">Phone Number <span className='text-danger'>*</span></label>
+                                    <input type="number" id="phone" placeholder='+91 ...' name='phone' className='form-control' value={formData.phone} onChange={handleOnChange} />
                                 </div>
                                 <div className="form-group col-md-6 mx-auto mb-3">
-                                    <label htmlFor="email" className="label-title form-label mb-1">Email</label>
-                                    <input type="email" id="email" placeholder='example@gmail.com' name='email' className='form-control' />
+                                    <label htmlFor="email" className="label-title form-label mb-1">Email <span className='text-danger'>*</span></label>
+                                    <input type="email" id="email" placeholder='example@gmail.com' name='email' className='form-control' value={formData.email} onChange={handleOnChange} />
                                 </div>
                                 <div className="form-group col-md-6 mb-3">
-                                    <label htmlFor="uploadMusic" className="label-title form-label mb-1">Upload your Music Track (you can upload later too)</label>
-                                    <input type="file" id="uploadMusic" placeholder='Upload your music' name='uploadMusic' className='form-control' />
+                                    <label htmlFor="musicTrack" className="label-title form-label mb-1">Upload your Music Track (you can upload later too)</label>
+                                    <input type="file" id="musicTrack" placeholder='Upload your music' name='musicTrack' className='form-control' value={formData.musicTrack} onChange={handleOnChange} />
                                 </div>
                             </div>
                             <div className="d-flex justify-content-center justify-content-md-end">
-                                <button type="submit" className='contactus__submitBtn'>Submit & pay</button>
+                                <button type="submit" className='contactus__submitBtn' onClick={handleOnSubmit}>
+                                    <span>Submit & pay</span>
+
+                                    {/* <Spinner size="sm" color="light">
+                                        Loading...
+                                    </Spinner> */}
+                                </button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-            <Footer />
-        </>
+        </Layout>
     )
 }
 

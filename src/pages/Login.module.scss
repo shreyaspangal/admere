@@ -3,6 +3,29 @@
     color: #fff;
     padding-block: 5rem;
 
+    .login__orSeparator {
+        position: relative;
+        z-index: 10;
+
+        p {
+            position: relative;
+            z-index: 1;
+            width: 10%;
+            margin: auto;
+            background-color: #333333;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 12px;
+            border-bottom: 1px solid gray;
+            z-index: 0;
+            width: 100%;
+        }
+    }
+
     .login__inner {
         width: 30%;
 
