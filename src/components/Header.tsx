@@ -17,7 +17,7 @@ function Header() {
     }
 
     const currMenuIcon = toggleNavMenu ? 'opened' : '';
-    const showNavBarLinks = window.location.pathname == '/' || window.location.pathname == '/home' ;
+    const showNavBarLinks = window.location.pathname == '/' || window.location.pathname == '/home';
 
     return (
         <nav className='nav'>
@@ -55,9 +55,12 @@ function Header() {
                         Contact us
                     </button>)
                 }
-                <button className={`${'nav__hamburger'} ${currMenuIcon}`} onClick={handleToggleMenu}>
-                    <span></span>
-                </button>
+                {
+                    showNavBarLinks &&
+                    <button className={`${'nav__hamburger'} ${currMenuIcon}`} onClick={handleToggleMenu}>
+                        <span></span>
+                    </button>
+                }
             </div>
         </nav>
     )

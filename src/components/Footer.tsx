@@ -2,6 +2,9 @@ import React from 'react';
 import styles from './Footer.module.scss';
 import { ReactComponent as Logo } from '../assets/images/logo.svg';
 import { ReactComponent as TwitterIcon } from '../assets/images/social/twitter.svg';
+import { ReactComponent as InstagramIcon } from '../assets/images/social/instagram.svg';
+// import { ReactComponent as LinkedinIcon } from '../assets/images/social/instagram.svg';
+// import { ReactComponent as TelegramIcon } from '../assets/images/social/twitter.svg';
 
 function Footer() {
     return (
@@ -29,13 +32,13 @@ function Footer() {
                                 <TwitterIcon color='blue'/>
                             </a>
                             <a href="#">
-                                <TwitterIcon color='blue'/>
+                                <InstagramIcon color='blue'/>
                             </a>
                             <a href="#">
                                 <TwitterIcon color='blue'/>
                             </a>
                             <a href="#">
-                                <TwitterIcon color='blue'/>
+                                <InstagramIcon color='blue'/>
                             </a>
                         </div>
                     </div>
