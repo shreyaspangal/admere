@@ -1,0 +1,49 @@
+.registerForm {
+    background-color: #1A1A1A;
+    padding-block: 4rem;
+
+    .registerForm__infoText {
+        width: 60%;
+        @media screen and (max-width: 768px) {
+            width: 90%;
+        }
+        margin: auto;
+        padding: 20px;
+        color: #A1A1A1;
+        border-bottom: 2px solid gray;
+        margin-bottom: 2rem;
+    }
+
+    .registerForm__form {
+        background-color: #333333;
+        color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        max-width: 60%;
+        margin: auto;
+
+        @media screen and (max-width: 1024px) {
+            max-width: 80%;
+        }
+
+        @media screen and (max-width: 840px) {
+            max-width: 90%;
+        }
+
+        form {
+            button {
+                border-radius: 100px;
+                background-image: linear-gradient(108deg, #1dcdfe -45%, #673ae0 96%);
+                width: 200px;
+                height: 50px;
+                color: #fff;
+                font-weight: 600;
+                border: none;
+
+                &:hover {
+                    background-image: linear-gradient(100deg, #1a9fc4 -13%, #5026c4 97%);
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,277 @@
+// Variables starts
+%nav-links {
+    color: white;
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+
+    li {
+        a {
+            text-decoration: none;
+            color: white;
+            padding-bottom: 2px;
+
+            &:hover {
+                border-bottom: 1px solid white;
+            }
+        }
+    }
+}
+
+%secondary-btn {
+    padding: 10px 22px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    border-radius: 100px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    border: none;
+    margin-right: 10px;
+
+
+    &:hover {
+        background-color: rgb(191, 190, 190);
+    }
+}
+
+// Variables ends
+
+.nav {
+    background-color: #1A1A1A;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    box-shadow: 0px 10px 15px 5px rgba(0, 0, 0, 0.1);
+    z-index: 999 !important;
+
+    .nav__inner {
+        max-width: 1400px;
+        margin-inline: auto;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .nav__logo {
+            min-width: 60px;
+            width: 60px;
+            height: 60px;
+            margin-left: 10px;
+        }
+    }
+
+    .nav__links {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @extend %nav-links;
+
+        @media screen and (max-width: 910px) {
+            display: none;
+        }
+
+        li {
+            &:not(li:last-child) {
+                margin-right: 40px;
+            }
+
+            min-width: 90px;
+            text-align: center;
+            letter-spacing: 1.2px;
+            font-weight: 400;
+        }
+    }
+
+    .nav__links-mobile {
+        @extend %nav-links;
+        display: none;
+
+        @media screen and (max-width: 910px) {
+            display: block;
+        }
+
+        position: absolute;
+        top: 78px;
+        right: 20px;
+        background-color: #fff;
+        width: 200px;
+        border-radius: 8px;
+
+        li {
+            margin-bottom: 1rem;
+            font-size: large;
+            font-weight: 500;
+            padding: 10px 20px;
+
+            a {
+                color: #1A1A1A;
+            }
+        }
+    }
+
+    .nav__contactBtn {
+        @extend %secondary-btn;
+
+        @media screen and (max-width: 910px) {
+            display: none;
+        }
+
+    }
+
+    .nav__gobackBtn {
+        @extend %secondary-btn;
+
+        // @media screen and (max-width: 910px) {
+        //     display: none;
+        // }
+    }
+
+    .nav__hamburger {
+        display: none;
+
+        @media screen and (max-width: 910px) {
+            display: block;
+        }
+
+        border: none;
+        background: none;
+        width: 50px;
+        height: 10px;
+        position: absolute;
+        top: 40px;
+        right: 20px;
+        margin-left: -25px;
+        margin-top: -25px;
+        padding: 0;
+        opacity: 0.5;
+        transition: opacity 0.5s ease;
+        outline: none;
+
+        &:hover {
+            opacity: 1
+        }
+
+        span {
+            display: block;
+            width: 100%;
+            height: 1px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-top: 1px solid white;
+            transform: translateY(22px);
+            transition: transform 0.5s ease, border-color 0.5s ease 0.3s;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background: white;
+                transform: translateY(-22px);
+                animation-name: topLineBurger;
+                animation-duration: 0.6s;
+                animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1.000);
+                animation-fill-mode: forwards;
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background: white;
+                transform: translateY(22px);
+                animation-name: bottomLineBurger;
+                animation-duration: 0.6s;
+                animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1.000);
+                animation-fill-mode: forwards;
+            }
+        }
+
+        &.opened {
+            span {
+                border-color: transparent;
+                transition: border-color 0.3s ease;
+
+                &:before {
+                    animation-name: topLineCross;
+                    animation-duration: 0.6s;
+                    animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1.000);
+                    animation-fill-mode: forwards;
+                }
+
+                &:after {
+                    animation-name: bottomLineCross;
+                    animation-duration: 0.6s;
+                    animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1.000);
+                    animation-fill-mode: forwards;
+                }
+            }
+        }
+    }
+}
+
+
+@keyframes topLineCross {
+    0% {
+        transform: translateY(-22px)
+    }
+
+    50% {
+        transform: translateY(0px)
+    }
+
+    100% {
+        transform: translateY(0px) rotate(45deg)
+    }
+}
+
+@keyframes bottomLineCross {
+    0% {
+        transform: translateY(22px)
+    }
+
+    50% {
+        transform: translateY(0px)
+    }
+
+    100% {
+        transform: translateY(0px) rotate(-45deg)
+    }
+}
+
+@keyframes topLineBurger {
+    0% {
+        transform: translateY(0px) rotate(45deg)
+    }
+
+    50% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: translateY(-22px) rotate(0deg)
+    }
+}
+
+@keyframes bottomLineBurger {
+    0% {
+        transform: translateY(0px) rotate(-45deg)
+    }
+
+    50% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: translateY(22px) rotate(0deg)
+    }
+}
