@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const routes = require("./routes");
+const cors = require("cors");
 const { notFound, errorHandler } = require("./middlewares/error.middleware");
 
 const app = express();
@@ -10,6 +11,10 @@ connectDB();
 
 // Json body parser
 app.use(express.json());
+
+// enable cors
+app.use(cors());
+app.options("*", cors());
 
 app.use("/api", routes);
 

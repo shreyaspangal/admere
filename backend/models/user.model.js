@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
-const { useAsyncValue } = require("react-router-dom");
 
 const userSchema = mongoose.Schema(
     {
