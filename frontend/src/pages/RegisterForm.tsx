@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './RegisterForm.module.scss';
 import Hero from '../components/Hero';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import { ReactComponent as ArrowDownIcon } from '../assets/images/icons/arrow-down.svg';
 import Layout from '../components/Layout';
-import { Spinner } from 'reactstrap';
+import { Alert, Col, Row, Spinner } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 type formDataType = {
     firstName: string,
     lastName: string,
     phone: any,
     email: string,
-    musicTrack: any,
+    password: string,
+    confirmPassword: string,
+    musicTrack?: any,
+}
+
+type errorType = {
+    prevState: null
 }
 
 const InitialFormState: formDataType = {
@@ -20,12 +26,16 @@ const InitialFormState: formDataType = {
     lastName: '',
     phone: '',
     email: '',
+    password: '',
+    confirmPassword: '',
     musicTrack: '',
 }
 
 function RegisterForm() {
 
-    const [formData, setFormData] = React.useState(InitialFormState);
+    const [formData, setFormData] = useState(InitialFormState);
+    const [error, setError] = useState<any | null>(null);
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleOnChange = (e: any) => {
         // Extract name & value attributes values & update/override form data
@@ -33,9 +43,42 @@ function RegisterForm() {
         setFormData({ ...formData, [name]: value });
     }
 
-    const handleOnSubmit = (e: any) => {
-        e.preventDefault();
-        console.log(formData);
+    const handleOnSubmit = async (e: any) => {
+        try {
+            e.preventDefault();
+
+            if (!formData.firstName || !formData.lastName) {
+                return setError("First name & Last name are required!");
+            }
+
+            if (!formData.email || !formData.password) {
+                return setError("Email & Phone number are required!");
+            }
+
+            if (!formData.password || !formData.confirmPassword) {
+                return setError("Password & Confirm password are required!");
+            }
+
+            if (formData.password !== formData.confirmPassword) {
+                return setError("Password & Confirm password should match!");
+            }
+
+            const config = {
+                headers: {
+                    "Content-Type": "application/json"
+                },
+            }
+
+            setIsLoading(true);
+
+            const { data } = await axios.post("http://localhost:5000/api/auth/register", formData, config);
+
+            localStorage.setItem("userInfo", JSON.stringify(data));
+            setIsLoading(false);
+        } catch (error: any) {
+            setError(error.response.data.message);
+            setIsLoading(false);
+        }
     }
 
     return (
@@ -55,8 +98,9 @@ function RegisterForm() {
                         </p>
                     </div>
                     <div className={styles.registerForm__form}>
-                        <form>
+                        <form onSubmit={handleOnSubmit}>
                             <div className="row">
+                                {error && <Alert color='danger' toggle={() => setError(null)}>{error}</Alert>}
                                 <div className="form-group col-md-6 mx-auto mb-3">
                                     <label htmlFor="firstName" className="label-title form-label mb-1">First Name <span className='text-danger'>*</span></label>
                                     <input type="text" id="firstName" placeholder='Joe' name='firstName' className='form-control' value={formData.firstName} onChange={handleOnChange} />
@@ -73,20 +117,33 @@ function RegisterForm() {
                                     <label htmlFor="email" className="label-title form-label mb-1">Email <span className='text-danger'>*</span></label>
                                     <input type="email" id="email" placeholder='example@gmail.com' name='email' className='form-control' value={formData.email} onChange={handleOnChange} />
                                 </div>
+                                <div className="form-group col-md-6 mx-auto mb-3">
+                                    <label htmlFor="password" className="label-title form-label mb-1">Password <span className='text-danger'>*</span></label>
+                                    <input type="password" id="password" placeholder='New password' name='password' className='form-control' value={formData.password} onChange={handleOnChange} />
+                                </div>
+                                <div className="form-group col-md-6 mx-auto mb-3">
+                                    <label htmlFor="confirmPassword" className="label-title form-label mb-1">Confirm password <span className='text-danger'>*</span></label>
+                                    <input type="password" id="confirmPassword" placeholder='Confirm your new password' name='confirmPassword' className='form-control' value={formData.confirmPassword} onChange={handleOnChange} />
+                                </div>
                                 <div className="form-group col-md-6 mb-3">
                                     <label htmlFor="musicTrack" className="label-title form-label mb-1">Upload your Music Track (you can upload later too)</label>
                                     <input type="file" id="musicTrack" placeholder='Upload your music' name='musicTrack' className='form-control' value={formData.musicTrack} onChange={handleOnChange} />
                                 </div>
                             </div>
                             <div className="d-flex justify-content-center justify-content-md-end">
-                                <button type="submit" className='contactus__submitBtn' onClick={handleOnSubmit}>
-                                    <span>Submit & pay</span>
-
-                                    {/* <Spinner size="sm" color="light">
-                                        Loading...
-                                    </Spinner> */}
+                                <button type="submit" className={styles.registerForm__submitAndPayBtn}>
+                                    {!isLoading && <span>Submit & pay</span>}
+                                    {
+                                        isLoading &&
+                                        <Spinner size="sm" color="light">
+                                            Loading...
+                                        </Spinner>
+                                    }
                                 </button>
                             </div>
+                            <Row>
+                                <Col className='col d-flex justify-content-end mt-3'>Already an User? <Link to="/login" className='ms-1'>Login here</Link></Col>
+                            </Row>
                         </form>
                     </div>
                 </div>
