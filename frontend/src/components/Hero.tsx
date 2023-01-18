@@ -14,7 +14,8 @@ type Assets = {
 
 function Hero({ heroTitle, heroSubtitle, btnText, onClick, btnIcon, bgHeight, bgInnerHeight }: Assets) {
 
-  const [isLoggedIn, setIsLoggedIn] = React.useState(true);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const showLoggedInAlert = window.location.pathname === "/" || window.location.pathname === "/home"
 
   // const heroStyles = {
   //   height: '600px',
@@ -28,7 +29,7 @@ function Hero({ heroTitle, heroSubtitle, btnText, onClick, btnIcon, bgHeight, bg
     <div className={styles.hero} style={{ height: bgHeight || '600px' }}>
       <div className={styles.hero__inner} style={{ height: bgInnerHeight || '600px' }}>
         {
-          isLoggedIn &&
+          (isLoggedIn && showLoggedInAlert) &&
           <div className={styles.hero__toast}>
             <p>Your now logged in with admere and can submit your video or view your profile <Link to='/profile-upload'>here</Link>. If already submitted please ignore.</p>
             <button onClick={() => setIsLoggedIn(false)}>X</button>
@@ -37,7 +38,7 @@ function Hero({ heroTitle, heroSubtitle, btnText, onClick, btnIcon, bgHeight, bg
         <div className={styles.hero__innerText}>
           {heroTitle && <h2 className='fs-1 mx-auto'>{heroTitle}</h2>}
           {heroSubtitle && <p className='fs-6 w-75 mx-auto my-5 my-lg-4'>{heroSubtitle}</p>}
-          {btnText && <button type='button' onClick={onClick} className={styles.hero__submitBtn}>{btnText}</button>}
+          {btnText && <button type='button' onClick={onClick} className={`${styles.hero__submitBtn} ${!heroSubtitle && "mt-3"}`}>{btnText}</button>}
           {/* {btnIcon && <button type='button' onClick={onClick}>{btnText}</button>} */}
         </div>
       </div>

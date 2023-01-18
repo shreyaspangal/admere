@@ -4,9 +4,11 @@
 
     .registerForm__infoText {
         width: 60%;
+
         @media screen and (max-width: 768px) {
             width: 90%;
         }
+
         margin: auto;
         padding: 20px;
         color: #A1A1A1;
@@ -30,19 +32,17 @@
             max-width: 90%;
         }
 
-        form {
-            button {
-                border-radius: 100px;
-                background-image: linear-gradient(108deg, #1dcdfe -45%, #673ae0 96%);
-                width: 200px;
-                height: 50px;
-                color: #fff;
-                font-weight: 600;
-                border: none;
+        .registerForm__submitAndPayBtn {
+            border-radius: 100px;
+            background-image: linear-gradient(108deg, #1dcdfe -45%, #673ae0 96%);
+            width: 200px;
+            height: 50px;
+            color: #fff;
+            font-weight: 600;
+            border: none;
 
-                &:hover {
-                    background-image: linear-gradient(100deg, #1a9fc4 -13%, #5026c4 97%);
-                }
+            &:hover {
+                background-image: linear-gradient(100deg, #1a9fc4 -13%, #5026c4 97%);
             }
         }
     }

@@ -1,8 +1,7 @@
-import React from 'react';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
+import React, { useEffect } from 'react';
 import Hero from '../components/Hero';
 import { useNavigate } from "react-router-dom";
+import Layout from '../components/Layout';
 
 // Styles & assets
 import styles from './Homepage.module.scss';
@@ -10,8 +9,7 @@ import { ReactComponent as TrophyIcon } from '../assets/images/icons/trophy.svg'
 import { ReactComponent as PeopleConversingIcon } from '../assets/images/icons/people-conversing.svg';
 import { ReactComponent as CertificateIcon } from '../assets/images/icons/certificate.svg';
 import { ReactComponent as CalenderIcon } from '../assets/images/icons/calender.svg';
-import { Card, CardImg, CardText, CardTitle, CardBody, Button, Accordion, AccordionBody, AccordionHeader, AccordionItem } from 'reactstrap';
-import Layout from '../components/Layout';
+import { Card, CardText, CardTitle, CardBody, Button, Accordion, AccordionBody, AccordionHeader, AccordionItem } from 'reactstrap';
 
 function Homepage() {
 
@@ -36,9 +34,21 @@ function Homepage() {
     window.scrollTo(0, 0);
   }
 
+  const redirectToRegister = () => {
+    navigate("/register");
+    window.scrollTo(0, 0);
+  }
+
+  const redirectToProfile = () => {
+    navigate("/profile-upload");
+    window.scrollTo(0, 0);
+  }
+
+  const isLoggedIn = localStorage.getItem("userInfo");
+
   return (
     <Layout>
-      <Hero heroTitle="We help individuals/bands represent their singing talent" heroSubtitle="This is a subheadline usmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis" btnText="Join Now" />
+      <Hero heroTitle="We help individuals/bands represent their singing talent" heroSubtitle="This is a subheadline usmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis" btnText={isLoggedIn ? "View profile" : "Join Now"} onClick={isLoggedIn ? redirectToProfile : redirectToRegister} />
       <div className={styles.homepage}>
         <div className={styles.homepage__inner}>
           <section id='#whoWeAre' className={styles.homepage__whoWeAre}>

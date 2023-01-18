@@ -16,8 +16,18 @@ function Header() {
         navigate(-1);
     }
 
+    function handleLogout() {
+        localStorage.removeItem("userInfo");
+        navigate("/home");
+    }
+
+    function handleRegister() {
+        navigate("/register");
+    }
+
     const currMenuIcon = toggleNavMenu ? 'opened' : '';
     const showNavBarLinks = window.location.pathname == '/' || window.location.pathname == '/home';
+    const userInfo = localStorage.getItem("userInfo");
 
     return (
         <nav className='nav'>
@@ -43,18 +53,17 @@ function Header() {
                         <li><a href="#faqs">Faq's</a></li>
                     </ul>
                 }
-                {
-                    !showNavBarLinks &&
-                    (<button className='nav__gobackBtn' onClick={handleGoback}>
-                        Go back
-                    </button>)
-                }
-                {
-                    showNavBarLinks &&
-                    (<button className='nav__contactBtn'>
-                        Contact us
-                    </button>)
-                }
+                <div>
+                    {
+                        !showNavBarLinks &&
+                        (<button className='nav__gobackBtn' onClick={handleGoback}>
+                            Go back
+                        </button>)
+                    }
+                    <button className='nav__contactBtn' onClick={userInfo ? handleLogout : handleRegister}>
+                        {userInfo ? "Logout" : "Register"}
+                    </button>
+                </div>
                 {
                     showNavBarLinks &&
                     <button className={`${'nav__hamburger'} ${currMenuIcon}`} onClick={handleToggleMenu}>

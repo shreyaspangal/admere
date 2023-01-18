@@ -23,7 +23,7 @@ function ContestInfo() {
     };
 
     const handlePayAndRegister = () => {
-        navigate("/register-form");
+        navigate("/register");
         window.scrollTo(0, 0);
     }
 

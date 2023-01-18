@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Progress } from 'reactstrap';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import styles from './ProfileUpload.module.scss';
 
 function ProfileUpload() {
+    const userInfo = JSON.parse(localStorage.getItem("userInfo") || '{}');
+
     return (
         <>
             <Header />
@@ -12,9 +14,9 @@ function ProfileUpload() {
                 <div className={styles.profileUpload__inner}>
                     <div className='profileUpload__sidebarWrapper'>
                         <div className={styles.profileUpload__sidebar}>
-                            <div className={styles.profileUpload__sidebarImg}>SS</div>
+                            <div className={styles.profileUpload__sidebarImg}>{userInfo.firstName[0].toUpperCase()}{userInfo.lastName[0].toUpperCase()}</div>
                             <div className={styles.profileUpload__sidebarProfileName}>
-                                <p className='fs-5 mb-0'>Shreyas Pangal</p>
+                                <p className='fs-5 mb-0'>{userInfo.firstName} {userInfo.lastName}</p>
                                 <small className='small'>Personal profile</small>
                             </div>
                             <div className={styles.profileUpload__sidebarLoginBtn}>
@@ -58,12 +60,12 @@ function ProfileUpload() {
                             </div>
                             <div className={styles.main__card2Row1}>
                                 <p className='p mb-0'>Mobile Number</p>
-                                <p className='p mb-0'>+91 9222222222</p>
+                                <p className='p mb-0'>{userInfo.phone}</p>
                             </div>
                             <div className={styles.main__card2Row2}>
                                 <p className='p mb-0'>Email ID</p>
                                 <div className={styles.main__card2Row2_emailBlock}>
-                                    <p className='p mb-0'>sarfarazalisyed2001@gmail.com</p>
+                                    <p className='p mb-0'>{userInfo.email}</p>
                                     <button className='btn btn-link p-0 text-decoration-none'>Verify your email</button>
                                 </div>
                             </div>
