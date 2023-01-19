@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Alert, Col, Row, Spinner } from 'reactstrap';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
@@ -23,6 +23,11 @@ function Login() {
     const [formData, setFormData] = useState(InitialFormState);
     const [error, setError] = useState<any | null>(null);
     const [isLoading, setIsLoading] = useState(false);
+
+    const redirectTo = (route: string) => {
+        navigate(route);
+        window.scrollTo(0, 0);
+    }
 
     const handleOnChange = (e: any) => {
         // Extract name & value attributes values & update/override form data
@@ -52,7 +57,7 @@ function Login() {
             localStorage.setItem("userInfo", JSON.stringify(data));
             // Stop loading
             setIsLoading(false);
-            navigate("/home");
+            redirectTo("/home");
         } catch (error: any) {
             // Set error state with data
             setError(error.response.data.message);

@@ -4,7 +4,7 @@ import Hero from '../components/Hero';
 import { ReactComponent as ArrowDownIcon } from '../assets/images/icons/arrow-down.svg';
 import Layout from '../components/Layout';
 import { Alert, Col, Row, Spinner } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 type formDataType = {
@@ -32,7 +32,7 @@ const InitialFormState: formDataType = {
 }
 
 function RegisterForm() {
-
+    const navigate = useNavigate();
     const [formData, setFormData] = useState(InitialFormState);
     const [error, setError] = useState<any | null>(null);
     const [isLoading, setIsLoading] = useState(false);
@@ -62,6 +62,7 @@ function RegisterForm() {
             if (formData.password !== formData.confirmPassword) {
                 return setError("Password & Confirm password should match!");
             }
+            setError(null);
 
             const config = {
                 headers: {
@@ -75,6 +76,7 @@ function RegisterForm() {
 
             localStorage.setItem("userInfo", JSON.stringify(data));
             setIsLoading(false);
+            navigate("/login");
         } catch (error: any) {
             setError(error.response.data.message);
             setIsLoading(false);

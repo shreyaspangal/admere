@@ -1,5 +1,4 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
 import Hero from './Hero';
 import { useNavigate } from 'react-router-dom';
 

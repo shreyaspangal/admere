@@ -29,18 +29,8 @@ function Homepage() {
     e.preventDefault();
   }
 
-  const redirectToContest = () => {
-    navigate("/contest-info");
-    window.scrollTo(0, 0);
-  }
-
-  const redirectToRegister = () => {
-    navigate("/register");
-    window.scrollTo(0, 0);
-  }
-
-  const redirectToProfile = () => {
-    navigate("/profile-upload");
+  const redirectTo = (route: string) => {
+    navigate(route);
     window.scrollTo(0, 0);
   }
 
@@ -48,7 +38,7 @@ function Homepage() {
 
   return (
     <Layout>
-      <Hero heroTitle="We help individuals/bands represent their singing talent" heroSubtitle="This is a subheadline usmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis" btnText={isLoggedIn ? "View profile" : "Join Now"} onClick={isLoggedIn ? redirectToProfile : redirectToRegister} />
+      <Hero heroTitle="We help individuals/bands represent their singing talent" heroSubtitle="This is a subheadline usmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis" btnText={isLoggedIn ? "View profile" : "Join Now"} onClick={() => isLoggedIn ? redirectTo("/profile-upload") : redirectTo("/register")} />
       <div className={styles.homepage}>
         <div className={styles.homepage__inner}>
           <section id='#whoWeAre' className={styles.homepage__whoWeAre}>
@@ -116,7 +106,7 @@ function Homepage() {
                         <CalenderIcon /> <span>17 Dec - 26 Jan</span>
                       </small>
                     </CardText>
-                    <Button color="primary" className={styles.detailsCard__button} onClick={redirectToContest}>
+                    <Button color="primary" className={styles.detailsCard__button} onClick={() => redirectTo("/contest-info")}>
                       More Details
                     </Button>
                   </CardBody>
@@ -137,7 +127,7 @@ function Homepage() {
                         <CalenderIcon /> <span>17 Dec - 26 Jan</span>
                       </small>
                     </CardText>
-                    <Button color="primary" className={styles.detailsCard__button} onClick={redirectToContest}>
+                    <Button color="primary" className={styles.detailsCard__button} onClick={() => redirectTo("/contest-info")}>
                       More Details
                     </Button>
                   </CardBody>
@@ -158,7 +148,7 @@ function Homepage() {
                         <CalenderIcon /> <span>17 Dec - 26 Jan</span>
                       </small>
                     </CardText>
-                    <Button color="primary" className={styles.detailsCard__button} onClick={redirectToContest}>
+                    <Button color="primary" className={styles.detailsCard__button} onClick={() => redirectTo("/contest-info")}>
                       More Details
                     </Button>
                   </CardBody>
