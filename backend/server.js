@@ -5,6 +5,7 @@ const routes = require("./routes");
 const cors = require("cors");
 const { notFound, errorHandler } = require("./middlewares/error.middleware");
 const path = require("path");
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 dotenv.config();
@@ -18,6 +19,7 @@ app.use(cors());
 app.options("*", cors());
 
 app.use("/api", routes);
+app.get("/", (req, res) => res.send("Working API!"));
 
 // ------------ deployment ----------------- //
 __dirname = path.resolve();
@@ -38,5 +40,9 @@ if (process.env.NODE_ENV === "production") {
 app.use(notFound);
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, console.log(`Server started listening in port ${PORT}`));
+//Connect to the database before listening
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log("listening for requests");
+    })
+})
