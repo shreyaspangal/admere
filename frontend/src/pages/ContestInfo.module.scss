@@ -32,16 +32,16 @@
             }
 
             .registerNow__Col1Box {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 20px;
+                display: flex;
+                gap: 60px;
+                justify-content: space-around;
+                border: 2px #646464 solid;
+                border-radius: 8px;
+                padding: 15px 10px;
 
-                @media screen and (max-width: 700px) {
-                    grid-template-columns: 1fr 1fr;
-                }
-
-                @media screen and (max-width: 425px) {
-                    grid-template-columns: 1fr;
+                @media screen and (max-width: 750px) {
+                    gap: 20px;
+                    flex-direction: column;
                 }
 
                 justify-content: space-around;

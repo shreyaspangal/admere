@@ -5,10 +5,13 @@ import Layout from '../components/Layout';
 
 // Styles & assets
 import styles from './Homepage.module.scss';
-import { ReactComponent as TrophyIcon } from '../assets/images/icons/trophy.svg';
-import { ReactComponent as PeopleConversingIcon } from '../assets/images/icons/people-conversing.svg';
-import { ReactComponent as CertificateIcon } from '../assets/images/icons/certificate.svg';
-import { ReactComponent as CalenderIcon } from '../assets/images/icons/calender.svg';
+import TrophyIcon from '../assets/images/icons/trophy.svg';
+import PeopleConversingIcon from '../assets/images/icons/people-conversing.svg';
+import CertificateIcon from '../assets/images/icons/certificate.svg';
+import CalenderIcon from '../assets/images/icons/calender.svg';
+import contest1 from '../assets/images/contest1.png';
+import contest2 from '../assets/images/contest2.png';
+import contest3 from '../assets/images/contest3.png';
 import { Card, CardText, CardTitle, CardBody, Button, Accordion, AccordionBody, AccordionHeader, AccordionItem } from 'reactstrap';
 
 function Homepage() {
@@ -41,28 +44,28 @@ function Homepage() {
       <Hero heroTitle="We help individuals/bands represent their singing talent" heroSubtitle="This is a subheadline usmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis" btnText={isLoggedIn ? "View profile" : "Join Now"} onClick={() => isLoggedIn ? redirectTo("/profile-upload") : redirectTo("/register")} />
       <div className={styles.homepage}>
         <div className={styles.homepage__inner}>
-          <section id='#whoWeAre' className={styles.homepage__whoWeAre}>
+          <section id='whoWeAre' className={styles.homepage__whoWeAre}>
             <h3>Who we are</h3>
             <p>We are community of experinced singers usmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis</p>
             <div className={styles.homepage__whoWeAre__cards}>
               <div className={styles.homepage__whoWeAre__card}>
-                <TrophyIcon />
+                <img src={TrophyIcon} alt="Trophy" />
                 <h4>Online Contests</h4>
                 <p>incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis</p>
               </div>
               <div className={styles.homepage__whoWeAre__card}>
-                <PeopleConversingIcon />
+                <img src={PeopleConversingIcon} alt="People Conversing" />
                 <h4>Mentorship</h4>
                 <p>incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis</p>
               </div>
               <div className={styles.homepage__whoWeAre__card}>
-                <CertificateIcon />
+                <img src={CertificateIcon} alt="Certificate" />
                 <h4>Win Certificates</h4>
                 <p>incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis</p>
               </div>
             </div>
           </section>
-          <section id='#winCertificates' className={styles.homepage__winCertificates}>
+          <section id='winCertificates' className={styles.homepage__winCertificates}>
             <h3>Win Certificates</h3>
             <div className={styles.homepage__winCertificates__wrapper}>
               <div className={styles.homepage__winCertificates__leftImg}>
@@ -73,28 +76,28 @@ function Homepage() {
               </div>
             </div>
           </section>
-          <section id='#section4' className={styles.homepage__section4}>
+          <section id='section4' className={styles.homepage__section4}>
             <div className={styles.homepage__section4__leftText}>
               <h5>Participate and improve your overall singing skills!</h5>
               <p>Particiate in online contests enim ad minim veniam, quis Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
             <div className={styles.homepage__section4__rightImg}></div>
           </section>
-          <section id='#section5' className={styles.homepage__section5}>
+          <section id='section5' className={styles.homepage__section5}>
             <div className={styles.homepage__section5__leftImg}></div>
             <div className={styles.homepage__section5__rightText}>
               <h5>Participate and improve your overall singing skills!</h5>
               <p>Particiate in online contests enim ad minim veniam, quis Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
           </section>
-          <section id='#ourContest' className={styles.homepage__ourContest}>
+          <section id='ourContest' className={styles.homepage__ourContest}>
             <h3 className={styles.ourContest__title}>Our Contest</h3>
             <p className={styles.ourContest__subtitle}>We provide different online contests according to your convenience usmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis scing elit, sed do eiusmod tempor incididunt ut labore et dolore magna al</p>
             <div className={styles.homepage__ourContest__detailsCards}>
               <div className={styles.homepage__ourContest__detailsCard}>
                 <Card className="my-2" style={{ backgroundColor: '#222222' }}>
                   <CardBody>
-                    <img src="https://picsum.photos/900/180" alt="Card image" className={styles.detailsCard__img} />
+                    <img src={contest1} alt="Card image" className={styles.detailsCard__img} />
                     <CardTitle tag="h5" className={styles.detailsCard__title}>
                       Weekly/Monthly Contests
                     </CardTitle>
@@ -102,8 +105,8 @@ function Homepage() {
                       incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis sed do eiusmod tempor incididunt ut labore et dolore magna.
                     </CardText>
                     <CardText className={styles.detailsCard__date}>
-                      <small>
-                        <CalenderIcon /> <span>17 Dec - 26 Jan</span>
+                      <small className='d-flex align-items-center fw-bold fs-6'>
+                        <img src={CalenderIcon} alt="Calender" /> <span className='ms-1'>17 Dec - 26 Jan</span>
                       </small>
                     </CardText>
                     <Button color="primary" className={styles.detailsCard__button} onClick={() => redirectTo("/contest-info")}>
@@ -115,7 +118,7 @@ function Homepage() {
               <div className={styles.homepage__ourContest__detailsCard}>
                 <Card className="my-2" style={{ backgroundColor: '#222222' }}>
                   <CardBody>
-                    <img src="https://picsum.photos/900/180" alt="Card image" className={styles.detailsCard__img} />
+                    <img src={contest2} alt="Card image" className={styles.detailsCard__img} />
                     <CardTitle tag="h5" className={styles.detailsCard__title}>
                       Weekly/Monthly Contests
                     </CardTitle>
@@ -123,8 +126,8 @@ function Homepage() {
                       incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis sed do eiusmod tempor incididunt ut labore et dolore magna.
                     </CardText>
                     <CardText className={styles.detailsCard__date}>
-                      <small>
-                        <CalenderIcon /> <span>17 Dec - 26 Jan</span>
+                      <small className='d-flex align-items-center fw-bold fs-6'>
+                        <img src={CalenderIcon} alt="Calender" /> <span className='ms-1'>17 Dec - 26 Jan</span>
                       </small>
                     </CardText>
                     <Button color="primary" className={styles.detailsCard__button} onClick={() => redirectTo("/contest-info")}>
@@ -136,7 +139,7 @@ function Homepage() {
               <div className={styles.homepage__ourContest__detailsCard}>
                 <Card className="my-2" style={{ backgroundColor: '#222222' }}>
                   <CardBody>
-                    <img src="https://picsum.photos/900/180" alt="Card image" className={styles.detailsCard__img} />
+                    <img src={contest3} alt="Card image" className={styles.detailsCard__img} />
                     <CardTitle tag="h5" className={styles.detailsCard__title}>
                       Weekly/Monthly Contests
                     </CardTitle>
@@ -144,8 +147,8 @@ function Homepage() {
                       incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis sed do eiusmod tempor incididunt ut labore et dolore magna.
                     </CardText>
                     <CardText className={styles.detailsCard__date}>
-                      <small>
-                        <CalenderIcon /> <span>17 Dec - 26 Jan</span>
+                      <small className='d-flex align-items-center fw-bold fs-6'>
+                        <img src={CalenderIcon} alt="Calender" /> <span className='ms-1'>17 Dec - 26 Jan</span>
                       </small>
                     </CardText>
                     <Button color="primary" className={styles.detailsCard__button} onClick={() => redirectTo("/contest-info")}>
@@ -156,7 +159,7 @@ function Homepage() {
               </div>
             </div>
           </section>
-          <section id='#recentParticipants' className={styles.homepage__recentParticipants}>
+          <section id='recentParticipants' className={styles.homepage__recentParticipants}>
             <div className={styles.homepage__recentParticipants__wrapper}>
               <h3 className={styles.homepage__recentParticipants__title}>Recent participants</h3>
               <p className={styles.homepage__recentParticipants__subtitle}>eand their feedback from mentor, winners tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis</p>
@@ -190,7 +193,7 @@ function Homepage() {
               </div>
             </div>
           </section>
-          <section id='#faqs' className={styles.homepage__faq}>
+          <section id='faqs' className={styles.homepage__faq}>
             <h3>Frequently asked questions</h3>
             <p>The most asked questions and answers by judges</p>
             <div className={styles.carousel}>
@@ -225,7 +228,7 @@ function Homepage() {
               }
             </div>
           </section>
-          <section id='#contactUs' className={styles.homepage__contactus}>
+          <section id='contactUs' className={styles.homepage__contactus}>
             <div className={styles.homepage__contactus__formWrapper}>
               <h3>Contact Us</h3>
               <form className={styles.homepage__contactus__form}>

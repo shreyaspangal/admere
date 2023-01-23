@@ -1,0 +1,13 @@
+{
+    "home": {
+        "hero": {
+            "title": "We help individuals/bands represent their singing talent",
+            "subtitle": "This is a subheadline usmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis",
+            "buttonText": "View profile"
+        },
+        "who_we_are": {
+            "title": "Who we are",
+            "subtitle": "We are community of experinced singers usmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis"
+        }
+    }
+}

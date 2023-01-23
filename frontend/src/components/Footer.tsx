@@ -3,8 +3,7 @@ import styles from './Footer.module.scss';
 import { ReactComponent as Logo } from '../assets/images/logo.svg';
 import { ReactComponent as TwitterIcon } from '../assets/images/social/twitter.svg';
 import { ReactComponent as InstagramIcon } from '../assets/images/social/instagram.svg';
-// import { ReactComponent as LinkedinIcon } from '../assets/images/social/instagram.svg';
-// import { ReactComponent as TelegramIcon } from '../assets/images/social/twitter.svg';
+import { ReactComponent as LinkedinIcon } from '../assets/images/social/linkedin.svg';
 
 function Footer() {
     return (
@@ -29,16 +28,13 @@ function Footer() {
                         <div>Follow us</div>
                         <div className={styles.footer__socialIcons}>
                             <a href="#">
-                                <TwitterIcon color='blue'/>
+                                <TwitterIcon color='blue' />
                             </a>
                             <a href="#">
-                                <InstagramIcon color='blue'/>
+                                <InstagramIcon color='blue' />
                             </a>
                             <a href="#">
-                                <TwitterIcon color='blue'/>
-                            </a>
-                            <a href="#">
-                                <InstagramIcon color='blue'/>
+                                <LinkedinIcon color='blue' />
                             </a>
                         </div>
                     </div>
@@ -46,7 +42,7 @@ function Footer() {
 
                 <div className={styles.footer__bottom}>
                     <div className={styles.footer__bottomLeft}>
-                        <p>@Copyright</p>
+                        <p className='mb-0'>@Copyright</p>
                     </div>
                     <div className={styles.footer__bottomRight}>
                         <div><a href="">Privacy Policy</a></div>

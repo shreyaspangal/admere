@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Header.scss';
 import { useNavigate } from 'react-router-dom';
 import { ReactComponent as Logo } from '../assets/images/logo.svg';
-import { getTokenSourceMapRange } from 'typescript';
 
 function Header() {
 
@@ -22,21 +21,16 @@ function Header() {
         navigate(-1);
     }
 
-    function handleLogout() {
-        localStorage.removeItem("userInfo");
-        navigate("/home");
-    }
-
-    function handleRegister() {
-        navigate("/register");
-    }
-
-    function handleLogin() {
-        navigate("/login");
-    }
-
     function getPathName(path: string) {
         return window.location.pathname == path;
+    }
+
+    const handleClickScroll = (idName: string) => {
+        let element = document.getElementById(idName);
+        if (element) {
+            // 👇 Will scroll smoothly to the top of the next section
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
     }
 
     const currMenuIcon = toggleNavMenu ? 'opened' : '';
@@ -46,28 +40,28 @@ function Header() {
     return (
         <nav className='nav'>
             <div className='nav__inner'>
-                <Logo className='nav__logo' />
+                <Logo className='nav__logo' onClick={() => redirectTo("/home")} title="Go to home page" />
                 {
                     (!toggleNavMenu && showNavBarLinks) &&
                     <ul className='nav__links'>
                         <li><a href="#whoWeAre">Who we are</a></li>
-                        <li><a href="#howItHelps">How it helps</a></li>
-                        <li><a href="#contests">Contests</a></li>
-                        <li><a href="#contactUs">Contact us</a></li>
+                        <li><a href="#winCertificates">How it helps</a></li>
+                        <li><a href="#ourContest">Contests</a></li>
                         <li><a href="#faqs">Faq's</a></li>
+                        <li><a href="#contactUs">Contact us</a></li>
                     </ul>
                 }
                 {
                     (toggleNavMenu && showNavBarLinks) &&
                     <ul className='nav__links-mobile'>
                         <li><a href="#whoWeAre">Who we are</a></li>
-                        <li><a href="#howItHelps">How it helps</a></li>
-                        <li><a href="#contests">Contests</a></li>
-                        <li><a href="#contactUs">Contact us</a></li>
+                        <li><a href="#winCertificates">How it helps</a></li>
+                        <li><a href="#ourContest">Contests</a></li>
                         <li><a href="#faqs">Faq's</a></li>
+                        <li><a href="#contactUs">Contact us</a></li>
                     </ul>
                 }
-                <div>
+                <div className='d-flex'>
                     {
                         !showNavBarLinks &&
                         (<button className='nav__gobackBtn' onClick={handleGoback}>
@@ -75,25 +69,19 @@ function Header() {
                         </button>)
                     }
                     {
-                        userInfo && !getPathName("/register") && !getPathName("/login") &&
-                        <button className='nav__navBtn' onClick={handleLogout}>
-                            Logout
-                        </button>
-                    }
-                    {
                         (!userInfo && !getPathName('/register')) &&
-                        <button className='nav__navBtn' onClick={handleRegister}>
+                        <button className='nav__navBtn' onClick={() => redirectTo("/register")}>
                             Register
                         </button>
                     }
                     {
-                        getPathName('/register') &&
-                        <button className='nav__navBtn' onClick={handleLogin}>
+                        !userInfo && getPathName('/register') &&
+                        <button className='nav__navBtn' onClick={() => redirectTo("/login")}>
                             Login
                         </button>
                     }
                     {
-                        userInfo && !getPathName("/profile-upload") && 
+                        userInfo && !getPathName("/profile-upload") &&
                         <button className='nav__navBtn' onClick={() => redirectTo("/profile-upload")}>
                             My profile
                         </button>

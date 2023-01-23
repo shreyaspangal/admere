@@ -15,6 +15,18 @@
     word-break: break-all;
 }
 
+%left-card-btn {
+    color: #a1a1a1;
+    text-align: left;
+    background-color: transparent;
+    border: none;
+    margin-bottom: 1.3rem;
+
+    &:hover {
+        color: #fff;
+    }
+}
+
 // Styles start from here
 .profileUpload {
     background-color: #1A1A1A;
@@ -76,28 +88,23 @@
 
             .profileUpload__sidebarLoginBtn {
                 button {
-                    color: #a1a1a1;
-                    text-align: left;
-                    background-color: transparent;
-                    border: none;
-                    margin-bottom: 1.3rem;
-
-                    &:hover {
-                        color: #fff;
-                    }
+                    @extend %left-card-btn;
                 }
             }
 
             .profileUpload__sidebarUploadVideoBtn {
                 button {
-                    color: #a1a1a1;
-                    text-align: left;
-                    background-color: transparent;
-                    border: none;
-                    margin-bottom: 1.3rem;
+                    @extend %left-card-btn;
+                }
+            }
+
+            .profileUpload__sidebarLogoutBtn {
+                button {
+                    @extend %left-card-btn;
+                    color: #e32636;
 
                     &:hover {
-                        color: #fff;
+                        color: #f88379;
                     }
                 }
             }

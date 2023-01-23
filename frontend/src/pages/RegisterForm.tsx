@@ -37,6 +37,11 @@ function RegisterForm() {
     const [error, setError] = useState<any | null>(null);
     const [isLoading, setIsLoading] = useState(false);
 
+    const redirectTo = (path: string) => {
+        navigate(path);
+        window.scrollTo(0, 0);
+    }
+
     const handleOnChange = (e: any) => {
         // Extract name & value attributes values & update/override form data
         const { name, value } = e.target;
@@ -76,7 +81,7 @@ function RegisterForm() {
 
             localStorage.setItem("userInfo", JSON.stringify(data));
             setIsLoading(false);
-            navigate("/login");
+            redirectTo("/login");
         } catch (error: any) {
             setError(error.response.data.message);
             setIsLoading(false);
@@ -128,13 +133,13 @@ function RegisterForm() {
                                     <input type="password" id="confirmPassword" placeholder='Confirm your new password' name='confirmPassword' className='form-control' value={formData.confirmPassword} onChange={handleOnChange} />
                                 </div>
                                 <div className="form-group col-md-6 mb-3">
-                                    <label htmlFor="musicTrack" className="label-title form-label mb-1">Upload your Music Track (you can upload later too)</label>
+                                    <label htmlFor="musicTrack" className="label-title form-label mb-1">Upload your Music Track (optional)</label>
                                     <input type="file" id="musicTrack" placeholder='Upload your music' name='musicTrack' className='form-control' value={formData.musicTrack} onChange={handleOnChange} />
                                 </div>
                             </div>
                             <div className="d-flex justify-content-center justify-content-md-end">
                                 <button type="submit" className={styles.registerForm__submitAndPayBtn}>
-                                    {!isLoading && <span>Submit & pay</span>}
+                                    {!isLoading && <span>Finish</span>}
                                     {
                                         isLoading &&
                                         <Spinner size="sm" color="light">

@@ -3,8 +3,12 @@ import styles from './ContestInfo.module.scss';
 import Hero from '../components/Hero';
 import Layout from '../components/Layout';
 import { Accordion, AccordionBody, AccordionHeader, AccordionItem } from 'reactstrap';
-import { ReactComponent as TrophyIcon } from '../assets/images/icons/trophy.svg';
-import { ReactComponent as GoldenTrophyIcon } from '../assets/images/icons/golden-trophy.svg';
+import { ReactComponent as LocationPinIcon } from '../assets/images/icons/location-pin.svg';
+import DeadlineCalenderIcon from '../assets/images/deadline-calender.png';
+import ParticipationIcon from '../assets/images/participation-people.png';
+import RegistrationFeeIcon from '../assets/images/registrationFee-rupee.png';
+import GoldenTrophyIcon from '../assets/images/golden-trophy.png';
+import EligibilityIcon from '../assets/images/eligibility.png';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -41,21 +45,21 @@ function ContestInfo() {
                         <div className={styles.contestInfo__registerNow_Col1}>
                             <div className={styles.registerNow__Col1Box}>
                                 <div className={styles.registerNow__Col1Box__item}>
-                                    < TrophyIcon width={40} height={40} />
+                                    <img src={DeadlineCalenderIcon} width={40} height={40} />
                                     <div>
                                         <p className='p mb-0'>Registration Deadline</p>
                                         <small className='small'>17 Dec, 22 , 3: 00 PM IST</small>
                                     </div>
                                 </div>
                                 <div className={styles.registerNow__Col1Box__item}>
-                                    < TrophyIcon width={40} height={40} />
+                                    <img src={ParticipationIcon} width={40} height={40} />
                                     <div>
                                         <p className='p mb-0'>Participation</p>
                                         <small className='small'>Individuals</small>
                                     </div>
                                 </div>
                                 <div className={styles.registerNow__Col1Box__item}>
-                                    < TrophyIcon width={40} height={40} />
+                                    <img src={RegistrationFeeIcon} width={40} height={40} />
                                     <div>
                                         <p className='p mb-0'>Registration Fee</p>
                                         <small className='small'>Have to pay ₹ 500</small>
@@ -64,7 +68,7 @@ function ContestInfo() {
                             </div>
                         </div>
                         <div className={styles.contestInfo__registerNow_Col2}>
-                            <button type='button' className={`${styles.payAndRegisterBtn} ' btn btn-success w-100'`} onClick={handlePayAndRegister}>Pay and Register Now</button>
+                            <button type='button' className={`${styles.payAndRegisterBtn} ' btn btn-success w-100'`} onClick={handlePayAndRegister}>Participate Now</button>
                         </div>
                     </div>
                     <div className={styles.contestInfo__weeklyMonthlyContests}>
@@ -73,7 +77,12 @@ function ContestInfo() {
                             <div>
                                 <h5 className='fs-3'>Weekly/Monthly Contests</h5>
                                 <small className='small'>incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis sed do eiusmod tempor incididunt ut labore et dolore magna</small>
-                                <p className='p mb-0'><span>Location -</span> <span>Online</span></p>
+                                <p className='p mb-0 d-flex'>
+                                    <div className="d-flex align-items-center">
+                                        <LocationPinIcon /><div className='ms-1'>Location -</div>
+                                    </div>
+                                    <div className='text-success ms-1'>Online</div>
+                                </p>
                             </div>
                         </div>
                         <div className={styles.contestInfo__weeklyMonthlyContests__row2}>
@@ -94,7 +103,7 @@ function ContestInfo() {
                                 </div>
                             </div>
                             <div>
-                                <span>Eligibility:</span> Open to All
+                                <img src={EligibilityIcon} alt="Eligibility" width={40} height={40} /><span className='ms-2'>Eligibility:</span> Open to All
                             </div>
                         </div>
                     </div>
@@ -154,32 +163,32 @@ function ContestInfo() {
                         <small className='text-gray d-block mb-3'>Certificates for top 20 participants</small>
                         <div className={styles.contestInfo__guidelines__rewards}>
                             <div className={styles.rewards__item1}>
-                                <GoldenTrophyIcon />
+                                <img src={GoldenTrophyIcon} width={50} height={50}/>
                                 <p className='mb-0 fw-bold'>1st Prize</p>
                                 <small className='small'>incididunt ut labore et dolore magna aliqua.</small>
                             </div>
                             <div className={styles.rewards__item2}>
-                                <GoldenTrophyIcon />
+                                <img src={GoldenTrophyIcon} width={50} height={50}/>
                                 <p className='mb-0 fw-bold'>2nd Prize</p>
                                 <small className='small'>incididunt ut labore et dolore magna aliqua.</small>
                             </div>
                             <div className={styles.rewards__item3}>
-                                <GoldenTrophyIcon />
+                                <img src={GoldenTrophyIcon} width={50} height={50}/>
                                 <p className='mb-0 fw-bold'>3rd Prize</p>
                                 <small className='small'>incididunt ut labore et dolore magna aliqua.</small>
                             </div>
                             <div className={styles.rewards__item4}>
-                                <GoldenTrophyIcon />
+                                <img src={GoldenTrophyIcon} width={50} height={50}/>
                                 <p className='mb-0 fw-bold'>4th Prize</p>
                                 <small className='small'>incididunt ut labore et dolore magna aliqua.</small>
                             </div>
                             <div className={styles.rewards__item5}>
-                                <GoldenTrophyIcon />
+                                <img src={GoldenTrophyIcon} width={50} height={50}/>
                                 <p className='mb-0 fw-bold'>5th Prize</p>
                                 <small className='small'>incididunt ut labore et dolore magna aliqua.</small>
                             </div>
                         </div>
-                        <button className={`${styles.payAndRegisterBtn} btn btn-success btn-lg mt-3`} type='button' onClick={handlePayAndRegister}>Pay and Register Now</button>
+                        <button className={`${styles.payAndRegisterBtn} btn btn-success btn-lg mt-3`} type='button' onClick={handlePayAndRegister}>Participate Now</button>
                     </div>
                     <div className={styles.contestInfo__faq}>
                         <p className='fs-3 mb-1 fw-bold'>Frequently asked questions</p>

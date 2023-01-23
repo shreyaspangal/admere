@@ -272,23 +272,31 @@
             }
 
             .homepage__ourContest__detailsCards {
-                display: grid;
-                grid-template-columns: repeat(3, 30%);
-                gap: 20px;
-                justify-content: space-between;
+                display: flex;
+                gap: 30px;
+                justify-content: center;
                 margin-inline: 5rem;
 
-                @media screen and (max-width: 1024px) {
-                    grid-template-columns: 1fr 1fr;
-                    gap: 40px;
-                }
-
                 @media screen and (max-width: 768px) {
-                    grid-template-columns: 1fr;
-                    margin-inline: 1rem;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-inline: 0rem;
                 }
 
                 .homepage__ourContest__detailsCard {
+                    width: 33%;
+
+                    @media screen and (max-width: 1024px) {
+                        width: 50%;
+                    }
+
+                    @media screen and (max-width: 768px) {
+                        width: 70%;
+                    }
+
+                    @media screen and (max-width: 425px) {
+                        width: 90%;
+                    }
 
                     .detailsCard__img {
                         border: solid 3px #fff;

@@ -18,17 +18,19 @@ import NoRouteFound from './components/NoRouteFound';
 
 function App() {
 
-  let [userInfo, setUserInfo] = useState(localStorage.getItem("userInfo"));
-
   const navigate = useNavigate();
+  const profilePath = window.location.pathname === "/profile-upload";
 
-  useEffect(() => {
-    if (userInfo) {
-      navigate(window.location.pathname);
-    } else {
-      navigate("/register");
-    }
-  }, [userInfo])
+  // useEffect(() => {
+  //   const userInfo = localStorage.getItem("userInfo") || null;
+  //   if (userInfo) {
+  //     return navigate("/profile-upload");
+  //   }
+
+  //   if (!userInfo && profilePath) {
+  //     return navigate("/home");
+  //   }
+  // }, []);
 
 
   return (

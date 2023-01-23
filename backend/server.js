@@ -9,7 +9,6 @@ const PORT = process.env.PORT || 5000;
 
 const app = express();
 dotenv.config();
-connectDB();
 
 // Json body parser
 app.use(express.json());
@@ -19,7 +18,6 @@ app.use(cors());
 app.options("*", cors());
 
 app.use("/api", routes);
-app.get("/", (req, res) => res.send("Working API!"));
 
 // ------------ deployment ----------------- //
 __dirname = path.resolve();

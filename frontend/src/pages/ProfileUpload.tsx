@@ -1,22 +1,40 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Progress } from 'reactstrap';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
 import styles from './ProfileUpload.module.scss';
+import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
+import Layout from '../components/Layout';
 
 function ProfileUpload() {
+    const navigate = useNavigate();
+
     const userInfo = JSON.parse(localStorage.getItem("userInfo") || '{}');
 
+    const [modal, setModal] = useState(false);
+    const toggle = () => setModal(!modal);
+
+    function handleLogout() {
+        localStorage.removeItem("userInfo");
+        navigate("/home");
+    }
+
+    function routeTo(pathName: string) {
+        navigate(pathName);
+        window.scrollTo(0, 0);
+    }
+
+    const firstLetter = userInfo.hasOwnProperty("firstName") ? userInfo.firstName[0].toUpperCase() : '';
+    const secondLetter = userInfo.hasOwnProperty("lastName") ? userInfo.lastName[0].toUpperCase() : '';
+
     return (
-        <>
-            <Header />
+        <Layout>
             <div className={styles.profileUpload}>
                 <div className={styles.profileUpload__inner}>
                     <div className='profileUpload__sidebarWrapper'>
                         <div className={styles.profileUpload__sidebar}>
-                            <div className={styles.profileUpload__sidebarImg}>{userInfo.firstName[0].toUpperCase()}{userInfo.lastName[0].toUpperCase()}</div>
+                            <div className={styles.profileUpload__sidebarImg}>{firstLetter}{secondLetter}</div>
                             <div className={styles.profileUpload__sidebarProfileName}>
-                                <p className='fs-5 mb-0'>{userInfo.firstName} {userInfo.lastName}</p>
+                                <p className='fs-5 mb-0'>{userInfo?.firstName || ''} {userInfo?.lastName || ''}</p>
                                 <small className='small'>Personal profile</small>
                             </div>
                             <div className={styles.profileUpload__sidebarLoginBtn}>
@@ -24,6 +42,23 @@ function ProfileUpload() {
                             </div>
                             <div className={styles.profileUpload__sidebarUploadVideoBtn}>
                                 <button type='button'>Upload Video</button>
+                            </div>
+                            <div className={styles.profileUpload__sidebarLogoutBtn}>
+                                <button type='button' onClick={toggle}>Logout</button>
+                                <Modal isOpen={modal} toggle={toggle}>
+                                    <ModalHeader toggle={toggle}>Are you sure?</ModalHeader>
+                                    <ModalBody>
+                                        Do you want to logout?
+                                    </ModalBody>
+                                    <ModalFooter>
+                                        <Button color="secondary" onClick={toggle}>
+                                            No
+                                        </Button>{' '}
+                                        <Button color="danger" onClick={handleLogout}>
+                                            Yes, logout
+                                        </Button>
+                                    </ModalFooter>
+                                </Modal>
                             </div>
                         </div>
                     </div>
@@ -46,7 +81,7 @@ function ProfileUpload() {
                                     Verify Email
                                 </button>
                                 <button type='button' className='btn btn-link p-0 text-decoration-none'>
-                                    Verified Phone Number
+                                    Verify Phone Number
                                 </button>
                                 <button type='button' className='btn btn-link p-0 text-decoration-none'>
                                     Complete Bank Basic Info
@@ -60,12 +95,12 @@ function ProfileUpload() {
                             </div>
                             <div className={styles.main__card2Row1}>
                                 <p className='p mb-0'>Mobile Number</p>
-                                <p className='p mb-0'>{userInfo.phone}</p>
+                                <p className='p mb-0'>{userInfo?.phone || ''}</p>
                             </div>
                             <div className={styles.main__card2Row2}>
                                 <p className='p mb-0'>Email ID</p>
                                 <div className={styles.main__card2Row2_emailBlock}>
-                                    <p className='p mb-0'>{userInfo.email}</p>
+                                    <p className='p mb-0'>{userInfo?.email || ''}</p>
                                     <button className='btn btn-link p-0 text-decoration-none'>Verify your email</button>
                                 </div>
                             </div>
@@ -91,9 +126,7 @@ function ProfileUpload() {
                     </div>
                 </div>
             </div>
-            <Footer />
-        </>
+        </Layout>
     )
 }
-
-export default ProfileUpload
+export default ProfileUpload;
