@@ -1,3 +1,5 @@
+@import "../assets/styles/root.scss";
+
 %main-card2Row {
     display: grid;
     grid-template-columns: 30% 70%;
@@ -25,6 +27,11 @@
     &:hover {
         color: #fff;
     }
+}
+
+%font-secondary-medium {
+    font-family: $font-secondary;
+    font-weight: 500;
 }
 
 // Styles start from here

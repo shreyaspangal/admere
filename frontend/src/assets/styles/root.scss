@@ -1,0 +1,46 @@
+@import url("../assets/fonts/clash-display/css/clash-display.css");
+
+/* fonts */
+$font-primary-bold: "ClashDisplay-Bold";
+$font-primary-semibold: "ClashDisplay-Semibold";
+$font-primary-medium: "ClashDisplay-Medium";
+$font-primary-regular: "ClashDisplay-Regular";
+$font-secondary: "Plus Jakarta Sans";
+$font-text: "Inter";
+
+/* font sizes */
+$font-size-sm: 14px;
+$font-size-base: 16px;
+$text-2-regular-size: 18px;
+$font-size-xl: 23px;
+$font-size-2xl: 24px;
+$font-size-3xl: 32px;
+$font-size-4xl: 45px;
+
+/* Colors */
+$default-white: #fff;
+$color-gray-100: #d9d9d9;
+$color-gray-200: #999;
+$color-gray-300: #222;
+$color-gray-400: #1a1a1a;
+$text-gray-900: #18191f;
+$text-txt-secondary: rgba(60, 60, 67, 0.85);
+$text-txt-primary: #000;
+$color-cyan: #1dcdfe;
+
+/* Gaps */
+$gap-0: 0px;
+$gap-md: 16px;
+
+/* Paddings */
+$padding-xs: 10px;
+$padding-sm: 15px;
+$padding-md: 18px;
+$padding-lg: 24px;
+$padding-xl: 40px;
+
+/* border radiuses */
+$br-xs: 5px;
+$br-sm: 8px;
+$br-md: 10px;
+$br-lg: 100px;

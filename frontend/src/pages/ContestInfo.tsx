@@ -108,12 +108,12 @@ function ContestInfo() {
                         </div>
                     </div>
                     <div className={styles.contestInfo__guidelines}>
-                        <h5 className='fs-3 mb-3 fw-semibold'>Weekly/Monthly Contests</h5>
+                        <h5 className='fs-3 mb-1 fw-semibold'>Weekly/Monthly Contests</h5>
                         <small className='small'>
                             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis sed do eiusmod tempor incididunt ut labore et dolore magna
                         </small>
                         {/* Guidelines */}
-                        <p className='fs-5 mb-1 mt-2 fw-bold'>Guidelines:</p>
+                        <p className='fs-5 mb-1 mt-3 fw-bold'>Guidelines:</p>
                         <div className={styles.listItem}>
                             <div className={styles.listItem__dotContainer}>
                                 <div className={styles.listItem__dot}></div>
@@ -152,47 +152,52 @@ function ContestInfo() {
                             </div>
                             <small className='small'>incididunt ut labore et dolore magna aliqua.</small>
                         </div>
+                    </div>
+                    <div className={styles.contestInfo__contactDetails}>
                         {/* Contact */}
                         <div className='my-4'>
-                            <p className='fs-5 mb-1 mt-2 fw-bold'>Contact the Organisers:</p>
-                            <small className='small text-gray d-block my-2'>Example@gmail.com</small>
-                            <small className='small text-gray d-block'>+91 9222222222</small>
+                            <h5 className='fs-3 my-2 fw-bold'>Contact the Organisers:</h5>
+                            <p className='text-muted mb-2'>Example@gmail.com</p>
+                            <p className='text-muted'>+91 9222222222</p>
                         </div>
+                    </div>
+                    <div className={styles.contestInfo__rewards}>
                         {/* Rewards and Prizes */}
-                        <p className='fs-5 mb-1 mt-2 fw-bold'>Rewards and Prizes:</p>
-                        <small className='text-gray d-block mb-3'>Certificates for top 20 participants</small>
-                        <div className={styles.contestInfo__guidelines__rewards}>
+                        <h5 className='fs-3 mb-1 mt-2 fw-bold'>Rewards and Prizes:</h5>
+                        <p className='text-muted mb-3'>Certificates for top 20 participants</p>
+                        <div className={styles.contestInfo__rewardsInner}>
                             <div className={styles.rewards__item1}>
-                                <img src={GoldenTrophyIcon} width={50} height={50}/>
-                                <p className='mb-0 fw-bold'>1st Prize</p>
+                                <img src={GoldenTrophyIcon} width={50} height={50} />
+                                <p className='mb-0 mt-2 fw-bold'>1st Prize</p>
                                 <small className='small'>incididunt ut labore et dolore magna aliqua.</small>
                             </div>
                             <div className={styles.rewards__item2}>
-                                <img src={GoldenTrophyIcon} width={50} height={50}/>
-                                <p className='mb-0 fw-bold'>2nd Prize</p>
+                                <img src={GoldenTrophyIcon} width={50} height={50} />
+                                <p className='mb-0 mt-2 fw-bold'>2nd Prize</p>
                                 <small className='small'>incididunt ut labore et dolore magna aliqua.</small>
                             </div>
                             <div className={styles.rewards__item3}>
-                                <img src={GoldenTrophyIcon} width={50} height={50}/>
-                                <p className='mb-0 fw-bold'>3rd Prize</p>
+                                <img src={GoldenTrophyIcon} width={50} height={50} />
+                                <p className='mb-0 mt-2 fw-bold'>3rd Prize</p>
                                 <small className='small'>incididunt ut labore et dolore magna aliqua.</small>
                             </div>
                             <div className={styles.rewards__item4}>
-                                <img src={GoldenTrophyIcon} width={50} height={50}/>
-                                <p className='mb-0 fw-bold'>4th Prize</p>
+                                <img src={GoldenTrophyIcon} width={50} height={50} />
+                                <p className='mb-0 mt-2 fw-bold'>4th Prize</p>
                                 <small className='small'>incididunt ut labore et dolore magna aliqua.</small>
                             </div>
                             <div className={styles.rewards__item5}>
-                                <img src={GoldenTrophyIcon} width={50} height={50}/>
-                                <p className='mb-0 fw-bold'>5th Prize</p>
+                                <img src={GoldenTrophyIcon} width={50} height={50} />
+                                <p className='mb-0 mt-2 fw-bold'>5th Prize</p>
                                 <small className='small'>incididunt ut labore et dolore magna aliqua.</small>
                             </div>
                         </div>
-                        <button className={`${styles.payAndRegisterBtn} btn btn-success btn-lg mt-3`} type='button' onClick={handlePayAndRegister}>Participate Now</button>
+                        <button className={`${styles.payAndRegisterBtn} btn btn-success btn-lg mt-3`}
+                            type='button' onClick={handlePayAndRegister}>Participate Now</button>
                     </div>
                     <div className={styles.contestInfo__faq}>
-                        <p className='fs-3 mb-1 fw-bold'>Frequently asked questions</p>
-                        <small className='d-block mb-3'>The most asked questions and answers by judges</small>
+                        <h5 className='fs-3 mb-1 fw-bold'>Frequently asked questions</h5>
+                        <p className='text-muted mb-3'>The most asked questions and answers by judges</p>
                         <div className={styles.carousel}>
                             {
                                 // @ts-ignore
@@ -226,7 +231,7 @@ function ContestInfo() {
                         </div>
                     </div>
                     <div className={styles.contestInfo__previousEntries}>
-                        <p className='fs-3 mb-3 fw-bold'>View Entries of Previous Competitions</p>
+                        <h5 className='fs-3 mb-3 fw-bold'>View Entries of Previous Competitions</h5>
                         <div className={styles.contestInfo__previousEntriesImgs}>
                             <div className={styles.contestInfo__previousEntriesImg}>
                                 {/* <button type='button' className={`${styles.contestInfo__previousEntriesImgBtn} btn btn-outline-secondary`}>Know more</button> */}

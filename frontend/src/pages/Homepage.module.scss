@@ -1,54 +1,4 @@
-/* Css variables starts */
-
-:root {
-    /* fonts */
-    --font-plus-jakarta-sans: "Plus Jakarta Sans";
-    --text-2-regular: Inter;
-    --font-clash-display: "Clash Display";
-
-    /* font sizes */
-    --font-size-sm: 14px;
-    --font-size-base: 16px;
-    --text-2-regular-size: 18px;
-    --font-size-xl: 23px;
-    --font-size-2xl: 24px;
-    --font-size-3xl: 32px;
-    --font-size-4xl: 45px;
-
-    /* Colors */
-    --default-white: #fff;
-    --color-gray-100: #d9d9d9;
-    --color-gray-200: #999;
-    --color-gray-300: #222;
-    --color-gray-400: #1a1a1a;
-    --text-gray-900: #18191f;
-    --text-txt-secondary: rgba(60, 60, 67, 0.85);
-    --text-txt-primary: #000;
-    --color-cyan: #1dcdfe;
-
-    /* Gaps */
-    --gap-0: 0px;
-    --gap-md: 16px;
-
-    /* Paddings */
-    --padding-xs: 10px;
-    --padding-sm: 15px;
-    --padding-md: 18px;
-    --padding-lg: 24px;
-    --padding-xl: 40px;
-
-    /* border radiuses */
-    --br-xs: 5px;
-    --br-sm: 8px;
-    --br-md: 10px;
-    --br-lg: 100px;
-}
-
-* {
-    margin: 0;
-}
-
-/* Css variables ends */
+@import "../assets/styles/root.scss";
 
 /* Extras start */
 
@@ -59,14 +9,17 @@
 }
 
 %section-title {
+    font-family: $font-primary-semibold;
+    letter-spacing: 1px;
     font-size: 45px;
-    font-weight: 600;
+    font-weight: 800;
     text-align: center;
     color: white;
     margin-block: 1rem;
 }
 
 %section-subtitle {
+    font-family: $font-text;
     text-align: center;
     color: white;
     width: 50%;
@@ -95,12 +48,14 @@
     }
 
     h5 {
+        font-family: $font-primary-medium;
         color: rgba(29, 205, 254, 1);
         font-size: 32px;
         margin-bottom: 1.6rem;
     }
 
     p {
+        font-family: $font-secondary;
         font-size: 16px;
     }
 }
@@ -185,11 +140,13 @@
                     }
 
                     h4 {
+                        font-family: $font-primary-medium;
                         margin-block: 1.3rem;
                         color: #1DCDFE;
                     }
 
                     p {
+                        font-family: $font-secondary;
                         margin: auto;
                         min-width: 80%;
                     }
@@ -308,22 +265,24 @@
                     }
 
                     .detailsCard__title {
+                        font-family: $font-primary-medium;
                         font-size: 24px;
                         font-weight: 500;
                     }
 
                     .detailsCard__description {
-                        font-family: PlusJakartaSans;
+                        font-family: $font-secondary;
                         font-size: 16px;
                         color: #999;
                     }
 
                     .detailsCard__date {
-                        font-family: ClashDisplay;
+                        font-family: $font-primary-semibold;
                         color: #fff;
                     }
 
                     .detailsCard__button {
+                        font-family: $font-primary-semibold;
                         width: 100%;
                         border-radius: 5px;
                         background-image: linear-gradient(100deg, #1dcdfe -13%, #673ae0 97%);
@@ -387,6 +346,14 @@
                         }
 
                         .testimonialTop {
+                            h6 {
+                                font-family: $font-primary-medium;
+                            }
+
+                            p {
+                                font-family: $font-secondary;
+                            }
+
                             background-color: #fff;
                             text-align: center;
                             box-shadow: 0 10px 20px 0 rgba(41, 41, 42, 0.07);
@@ -421,12 +388,12 @@
                             }
 
                             .testimonialBottom__name {
-                                font-weight: bold;
+                                font-family: $font-primary-semibold;
                                 font-size: 16px;
                             }
 
                             .testimonialBottom__tag {
-                                font-weight: normal;
+                                font-family: $font-secondary;
                                 font-size: 14px;
                             }
                         }
@@ -457,6 +424,8 @@
                 }
 
                 .carousel__title {
+                    font-family: $font-primary-semibold;
+
                     button {
                         color: #000 !important;
                         font-weight: 600;
@@ -468,8 +437,8 @@
                 }
 
                 .carousel__content {
-                    color: gray;
-                    font-family: Inter;
+                    color: rgb(105, 105, 105);
+                    font-family: $font-text;
                 }
             }
 
@@ -498,13 +467,19 @@
                 }
 
                 .homepage__contactus__form {
+                    label {
+                        font-family: $font-secondary !important;
+                        font-weight: 500 !important;
+                    }
+
                     button {
+                        font-family: $font-secondary;
+                        font-weight: 600;
                         border-radius: 100px;
                         background-image: linear-gradient(108deg, #1dcdfe -45%, #673ae0 96%);
                         width: 200px;
                         height: 50px;
                         color: #fff;
-                        font-weight: 600;
                         border: none;
 
                         &:hover {

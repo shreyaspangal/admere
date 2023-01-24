@@ -1,11 +1,20 @@
+@import "../assets/styles/root.scss";
+
+$home-bg: '../assets/images/hero-img.png';
+$other-bg: '../assets/images/contestinfo-bg.png';
+
 .hero {
     height: 600px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.539), rgb(0, 0, 0)), url('../assets/images/hero-img.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.539), rgb(0, 0, 0)), url($home-bg);
     background-repeat: no-repeat;
     background-position: 0% top;
     background-size: cover;
 
     position: relative;
+
+    // &.home {
+    //     background-image: linear-gradient(rgba(0, 0, 0, 0.539), rgb(0, 0, 0)), url($home-bg);
+    // }
 
     .hero__toast {
         position: absolute;
@@ -68,19 +77,30 @@
         justify-content: center;
 
         .hero__innerText {
+            h2 {
+                font-family: $font-primary-semibold;
+            }
+
+            p {
+                font-family: $font-secondary;
+                font-weight: normal;
+                opacity: 0.8;
+            }
+            
             button {
+                font-family: $font-secondary;
+                font-weight: 700;
+                font-size: 16px;
                 background-image: linear-gradient(rgba(29, 205, 254, 100%), rgba(103, 58, 224, 100%));
-                width: 213px;
+                width: 220px;
                 height: 50px;
                 flex-grow: 0;
                 padding: 10px 45px;
                 border: none;
                 border-radius: 50px;
                 color: white;
-                font-weight: 500;
                 text-transform: uppercase;
                 letter-spacing: 1.2px;
-                font-size: 15px;
 
                 &:hover,
                 &:focus {

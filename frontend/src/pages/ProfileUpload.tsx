@@ -4,6 +4,10 @@ import { Progress } from 'reactstrap';
 import styles from './ProfileUpload.module.scss';
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import Layout from '../components/Layout';
+import PlusIcon from "../assets/images/icons/plus-filled-blue.svg";
+import { ReactComponent as TickIcon } from "../assets/images/icons/tick-filled-green.svg";
+import LoginIcon from "../assets/images/icons/login-details.svg";
+import UploadIcon from "../assets/images/icons/upload-music.svg";
 
 function ProfileUpload() {
     const navigate = useNavigate();
@@ -38,13 +42,28 @@ function ProfileUpload() {
                                 <small className='small'>Personal profile</small>
                             </div>
                             <div className={styles.profileUpload__sidebarLoginBtn}>
-                                <button type='button'>Login Details</button>
+                                <button type='button'>
+                                    <span className="d-flex align-items-center">
+                                        <img src={LoginIcon} className="me-2" style={{ transform: "rotate(90deg)" }} />
+                                        Login Details
+                                    </span>
+                                </button>
                             </div>
                             <div className={styles.profileUpload__sidebarUploadVideoBtn}>
-                                <button type='button'>Upload Video</button>
+                                <button type='button'>
+                                    <span className="d-flex align-items-center">
+                                        <img src={UploadIcon} className="me-2" />
+                                        Upload Video
+                                    </span>
+                                </button>
                             </div>
                             <div className={styles.profileUpload__sidebarLogoutBtn}>
-                                <button type='button' onClick={toggle}>Logout</button>
+                                <button type='button' onClick={toggle}>
+                                    <span className="d-flex align-items-center">
+                                        <img src={LoginIcon} className="me-2" />
+                                        Logout
+                                    </span>
+                                </button>
                                 <Modal isOpen={modal} toggle={toggle}>
                                     <ModalHeader toggle={toggle}>Are you sure?</ModalHeader>
                                     <ModalBody>
@@ -78,13 +97,16 @@ function ProfileUpload() {
                             </div>
                             <div className={styles.main__card1Bottom}>
                                 <button type='button' className='btn btn-link p-0 text-decoration-none'>
-                                    Verify Email
+                                    <span className="d-flex align-items-center">
+                                        <img src={PlusIcon} className='me-2' />
+                                        Verify Email
+                                    </span>
                                 </button>
                                 <button type='button' className='btn btn-link p-0 text-decoration-none'>
-                                    Verify Phone Number
-                                </button>
-                                <button type='button' className='btn btn-link p-0 text-decoration-none'>
-                                    Complete Bank Basic Info
+                                    <span className="d-flex align-items-center">
+                                        <TickIcon className='me-2' />
+                                        Verify Phone Number
+                                    </span>
                                 </button>
                             </div>
                         </div>
